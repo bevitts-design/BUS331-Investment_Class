@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BUS331 · Investments</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 
 <style>
 /* ═══════════════════════════════════════════════════════
@@ -234,17 +234,19 @@ nav {
 .section-sub { font-size: var(--text-md); color: var(--slate); line-height: var(--lh-body); max-width: 540px; }
 
 /* ══════════════════════════════════════════════════════
-   UNIT TRACKS — 3-col, lead card
+   CONNECT-ALIGNED COURSE SECTIONS
    ══════════════════════════════════════════════════════ */
 .tracks-section { background: var(--panel); }
 .tracks-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4);
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--sp-4);
 }
 .track-card {
+  grid-column: span 2;
   background: var(--surface); border: 1px solid var(--border);
   border-radius: 12px; padding: var(--sp-4);
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
 }
+.track-card:nth-last-child(-n+2) { grid-column: span 3; }
 .track-card:hover { border-color: var(--border-dark); box-shadow: 0 8px 32px rgba(10,37,64,0.08); transform: translateY(-2px); }
 .track-card.lead { border-color: var(--accent); background: var(--accent-dim); }
 .track-card.lead:hover { box-shadow: 0 8px 32px rgba(212,160,82,0.16); }
@@ -269,7 +271,7 @@ nav {
 .module-block { margin-bottom: var(--sp-12); }
 .module-block:last-child { margin-bottom: 0; }
 .module-header {
-  display: flex; align-items: baseline; gap: var(--sp-2);
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-2);
   margin-bottom: var(--sp-4); padding-bottom: var(--sp-2);
   border-bottom: 1px solid var(--border);
 }
@@ -373,6 +375,8 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
    ══════════════════════════════════════════════════════ */
 @media (max-width: 900px) {
   .tracks-grid  { grid-template-columns: 1fr; }
+  .track-card,
+  .track-card:nth-last-child(-n+2) { grid-column: auto; }
   .lessons-grid { grid-template-columns: 1fr 1fr; }
   .hero-stats   { gap: var(--sp-4); }
   .footer-inner { flex-direction: column; }
@@ -409,7 +413,7 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
       </div>
     </a>
     <ul class="nav-links">
-      <li><a href="#units">Units</a></li>
+      <li><a href="#sections">Sections</a></li>
       <li><a href="#chapters">Chapters</a></li>
       <li><a href="#project">Project</a></li>
     </ul>
@@ -434,7 +438,7 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
       </h1>
 
       <p class="hero-desc">
-        Sixteen chapters of Bodie, Kane &amp; Marcus. Real tickers.<br>
+        Fifteen chapters of Bodie, Kane &amp; Marcus. Real tickers.<br>
         One semester that changes how you see markets.
       </p>
 
@@ -450,7 +454,7 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
 
       <div class="hero-stats">
         <div class="stat">
-          <span class="stat-value">16</span>
+          <span class="stat-value">15</span>
           <span class="stat-label">BKM Chapters</span>
         </div>
         <div class="stat">
@@ -475,32 +479,31 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
 
 <hr class="section-divider">
 
-<!-- ════════════ UNIT TRACKS ════════════ -->
-<section class="tracks-section section-wrap fade-section" id="units">
+<!-- ════════════ CONNECT-ALIGNED COURSE SECTIONS ════════════ -->
+<section class="tracks-section section-wrap fade-section" id="sections">
   <div class="container">
 
     <div class="section-head">
       <p class="label-tag">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="6"/></svg>
-        Course Architecture
+        Course Sections
       </p>
-      <h2 class="section-h2">Three units. One semester.</h2>
-      <p class="section-sub">From risk and return fundamentals through portfolio construction to asset pricing and valuation.</p>
+      <h2 class="section-h2">Five sections. One semester.</h2>
+      <p class="section-sub">The same chapter groupings used for assignments in McGraw Hill Connect.</p>
     </div>
 
     <div class="tracks-grid">
 
       <div class="track-card">
-        <p class="track-num">Unit 01</p>
-        <div class="track-icon">📐</div>
-        <h3 class="track-name">Foundations</h3>
-        <p class="track-desc">Risk, return, asset classes, statistical tools, and how markets are structured. The bedrock of every investment decision.</p>
-        <p class="track-meta">Ch. 1–6 · BKM Part I &amp; II</p>
+        <p class="track-num">Chapters 1–4</p>
+        <div class="track-icon">🌐</div>
+        <h3 class="track-name">Investment Overview</h3>
+        <p class="track-desc">The investment environment, financial instruments, trading mechanics, and pooled investment companies.</p>
+        <p class="track-meta">Chapters 1–4</p>
       </div>
 
-      <!-- Lead: Portfolio Theory — the conceptual core -->
       <div class="track-card lead">
-        <p class="track-num">Unit 02</p>
+        <p class="track-num">Chapters 5–7</p>
         <div class="track-icon">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <circle cx="6" cy="14" r="3" stroke="white" stroke-width="1.4" opacity="0.9"/>
@@ -509,17 +512,33 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
             <path d="M8.5 8.5l-1.5 3M11.5 8.5l1.5 3M8.5 14h3" stroke="white" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
           </svg>
         </div>
-        <h3 class="track-name">Portfolio Theory</h3>
-        <p class="track-desc">Diversification, efficient frontier, CAPM, Beta, and the Capital Market Line. The quantitative core of modern investing.</p>
-        <p class="track-meta">Ch. 7–10 · Core Unit</p>
+        <h3 class="track-name">Portfolio Theory and Practice</h3>
+        <p class="track-desc">Risk and return, capital allocation, diversification, and the construction of optimal risky portfolios.</p>
+        <p class="track-meta">Chapters 5–7</p>
       </div>
 
       <div class="track-card">
-        <p class="track-num">Unit 03</p>
+        <p class="track-num">Chapters 14–16</p>
+        <div class="track-icon">📉</div>
+        <h3 class="track-name">Fixed Income Securities</h3>
+        <p class="track-desc">Bond pricing and yields, the term structure of interest rates, and managing bond portfolios.</p>
+        <p class="track-meta">Chapters 14–16</p>
+      </div>
+
+      <div class="track-card">
+        <p class="track-num">Chapter 18</p>
         <div class="track-icon">📊</div>
-        <h3 class="track-name">Asset Classes</h3>
-        <p class="track-desc">Fixed income, equity valuation, options, futures, and active vs. passive management across major asset classes.</p>
-        <p class="track-meta">Ch. 11–16 · BKM Part IV &amp; V</p>
+        <h3 class="track-name">Equity Security Analysis</h3>
+        <p class="track-desc">Equity valuation models and the assumptions analysts use to estimate intrinsic value.</p>
+        <p class="track-meta">Chapter 18</p>
+      </div>
+
+      <div class="track-card">
+        <p class="track-num">Chapters 20–23</p>
+        <div class="track-icon">⇄</div>
+        <h3 class="track-name">Options, Futures and Derivatives</h3>
+        <p class="track-desc">Options markets and valuation, futures markets, swaps, hedging, and financial risk management.</p>
+        <p class="track-meta">Chapters 20–23</p>
       </div>
 
     </div>
@@ -535,17 +554,17 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
     <div class="section-head">
       <p class="label-tag">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="6"/></svg>
-        All Chapters
+        Course Chapters
       </p>
-      <h2 class="section-h2">Your complete chapter map.</h2>
-      <p class="section-sub">All 16 BKM chapters across 28 TR sessions, Sept 1 – Dec 11.</p>
+      <h2 class="section-h2">Your Connect-aligned chapter map.</h2>
+      <p class="section-sub">Fifteen BKM chapters organized in the same five sections used in Connect.</p>
     </div>
 
-    <!-- ── UNIT 01: FOUNDATIONS ── -->
+    <!-- ── INVESTMENT OVERVIEW: CHAPTERS 1–4 ── -->
     <div class="module-block fade-section">
       <div class="module-header">
-        <span class="module-badge">UNIT 01 · FOUNDATIONS</span>
-        <span class="module-title">Risk, Return & Market Structure</span>
+        <span class="module-badge">INVESTMENT OVERVIEW</span>
+        <span class="module-title">Chapters 1–4</span>
       </div>
       <div class="lessons-grid">
 
@@ -585,6 +604,17 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
           </span>
         </a>
 
+      </div>
+    </div>
+
+    <!-- ── PORTFOLIO THEORY AND PRACTICE: CHAPTERS 5–7 ── -->
+    <div class="module-block fade-section">
+      <div class="module-header">
+        <span class="module-badge">PORTFOLIO THEORY AND PRACTICE</span>
+        <span class="module-title">Chapters 5–7</span>
+      </div>
+      <div class="lessons-grid">
+
         <a class="lesson-card" href="https://canva.link/cw25yzqhjyla8wc" target="_blank" rel="noopener noreferrer" aria-label="Open Chapter 5: Risk, Return and the Historical Record in Canva (opens in a new tab)">
           <div class="lesson-code">BUS331-CH05</div>
           <div class="lesson-title">Risk, Return & the Historical Record</div>
@@ -603,17 +633,6 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
           </span>
         </a>
 
-      </div>
-    </div>
-
-    <!-- ── UNIT 02: PORTFOLIO THEORY ── -->
-    <div class="module-block fade-section">
-      <div class="module-header">
-        <span class="module-badge">UNIT 02 · PORTFOLIO THEORY</span>
-        <span class="module-title">Diversification, CAPM & Beta</span>
-      </div>
-      <div class="lessons-grid">
-
         <a class="lesson-card" href="https://canva.link/5xfj6orsygyixjm" target="_blank" rel="noopener noreferrer" aria-label="Open Chapter 7: Optimal Risky Portfolios in Canva (opens in a new tab)">
           <div class="lesson-code">BUS331-CH07</div>
           <div class="lesson-title">Optimal Risky Portfolios</div>
@@ -623,41 +642,14 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
           </span>
         </a>
 
-        <a class="lesson-card" href="#">
-          <div class="lesson-code">BUS331-CH08</div>
-          <div class="lesson-title">Index Models</div>
-          <div class="lesson-topic">Single-index model, Alpha, Beta, residual risk — regression with SPY as market proxy</div>
-          <span class="lesson-cta">Open lesson
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </a>
-
-        <a class="lesson-card" href="#">
-          <div class="lesson-code">BUS331-CH09</div>
-          <div class="lesson-title">The Capital Asset Pricing Model</div>
-          <div class="lesson-topic">CAPM, Security Market Line, expected return vs. required return, Beta interpretation</div>
-          <span class="lesson-cta">Open lesson
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </a>
-
-        <a class="lesson-card" href="#">
-          <div class="lesson-code">BUS331-CH10</div>
-          <div class="lesson-title">Arbitrage Pricing Theory & Multifactor Models</div>
-          <div class="lesson-topic">APT, factor models, Fama-French three-factor model and its extensions</div>
-          <span class="lesson-cta">Open lesson
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </a>
-
       </div>
     </div>
 
-    <!-- ── UNIT 03: ASSET CLASSES ── -->
+    <!-- ── FIXED INCOME SECURITIES: CHAPTERS 14–16 ── -->
     <div class="module-block fade-section">
       <div class="module-header">
-        <span class="module-badge">UNIT 03 · ASSET CLASSES</span>
-        <span class="module-title">Fixed Income, Equity & Derivatives</span>
+        <span class="module-badge">FIXED INCOME SECURITIES</span>
+        <span class="module-title">Chapters 14–16</span>
       </div>
       <div class="lessons-grid">
 
@@ -679,6 +671,24 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
           </span>
         </a>
 
+        <div class="lesson-card disabled">
+          <div class="lesson-code">BUS331-CH16</div>
+          <div class="lesson-title">Managing Bond Portfolios</div>
+          <div class="lesson-topic">Duration, convexity, immunization, and active and passive bond-management strategies</div>
+          <span class="coming-badge">Lesson coming soon</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── EQUITY SECURITY ANALYSIS: CHAPTER 18 ── -->
+    <div class="module-block fade-section">
+      <div class="module-header">
+        <span class="module-badge">EQUITY SECURITY ANALYSIS</span>
+        <span class="module-title">Chapter 18</span>
+      </div>
+      <div class="lessons-grid">
+
         <a class="lesson-card" href="https://canva.link/lmgash24zh8hv5v" target="_blank" rel="noopener noreferrer" aria-label="Open Chapter 18: Equity Valuation Models in Canva (opens in a new tab)">
           <div class="lesson-code">BUS331-CH18</div>
           <div class="lesson-title">Equity Valuation Models</div>
@@ -687,6 +697,17 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </a>
+
+      </div>
+    </div>
+
+    <!-- ── OPTIONS, FUTURES AND DERIVATIVES: CHAPTERS 20–23 ── -->
+    <div class="module-block fade-section">
+      <div class="module-header">
+        <span class="module-badge">OPTIONS, FUTURES AND DERIVATIVES</span>
+        <span class="module-title">Chapters 20–23</span>
+      </div>
+      <div class="lessons-grid">
 
         <a class="lesson-card" href="https://canva.link/c8n3jgl9u8hdlow" target="_blank" rel="noopener noreferrer" aria-label="Open Chapter 20: Options Markets in Canva (opens in a new tab)">
           <div class="lesson-code">BUS331-CH20</div>
@@ -705,6 +726,13 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </a>
+
+        <div class="lesson-card disabled">
+          <div class="lesson-code">BUS331-CH22</div>
+          <div class="lesson-title">Futures Markets</div>
+          <div class="lesson-topic">Futures contracts, market mechanics, pricing relationships, and hedging applications</div>
+          <span class="coming-badge">Lesson coming soon</span>
+        </div>
 
         <a class="lesson-card" href="https://canva.link/eqydv9541mhnuk1" target="_blank" rel="noopener noreferrer" aria-label="Open Chapter 23: Futures, Swaps and Risk Management in Canva (opens in a new tab)">
           <div class="lesson-code">BUS331-CH23</div>
