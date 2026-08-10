@@ -9,6 +9,8 @@
 
 ## Maintained sources
 
+- Treat `course-map.json` as the source of truth for public homepage chapter cards and chapter visibility. Update it instead of hand-editing the managed `BUS331 COURSE MAP` region in `index.html`, then run `scripts/build-index.mjs` and `scripts/validate-course-map.mjs`.
+- Treat `MissionControl/Package.swift` and the sources under `MissionControl/Sources/BUS331MissionControl/` as the maintained BUS331 Mission Control desktop app. Saving chapter visibility may rebuild local artifacts, but staging, committing, pushing, and publishing must remain a separate review-and-approval workflow.
 - Treat `docs/bus331-html-deck-standard.md` as the course-specific design, teaching-pattern, and verification standard for BUS331 HTML decks.
 - Treat `styles/bus331-deck.css`, `deck-stage.js`, `image-slot.js`, and the current build scripts as the maintained BUS331 presentation system. Existing decks use shared local runtime files; do not replace them with BUS311-specific scaffolding or inline copies without an explicit migration decision.
 - Update deck content in the relevant maintained source module under `scripts/decks/`, then regenerate the HTML. Do not hand-edit a generated deck as the final source of truth.
@@ -29,9 +31,9 @@
 
 ## Required verification
 
+- For homepage chapter-map or Mission Control work, run `scripts/build-index.mjs`, `scripts/validate-course-map.mjs`, `tests/course-map.test.mjs`, `script/test_mission_control_core.sh`, and `swift build --package-path MissionControl` as applicable. Confirm locked chapter cards expose no functional links and preserve the public/private boundary.
 - Run the applicable builder before validating a maintained deck.
 - For Chapters 1–4, run `scripts/build-bus331-intro-m01-m04.mjs` and `scripts/validate-bus331-intro-m01-m04.mjs`.
 - For Portfolio Theory M05, run `scripts/build-bus331-portfolio-m05-l01.mjs` and `scripts/validate-bus331-portfolio-m05-l01.mjs`.
 - Inspect every revised slide for clipping, overflow, below-floor text, image loading, hash navigation, notes, controls, interaction behavior, and console errors.
 - Verify financial calculations independently and preserve the public/private boundary before publication.
-

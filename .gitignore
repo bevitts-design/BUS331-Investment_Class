@@ -1,0 +1,8 @@
+# SwiftPM and locally staged macOS app artifacts
+MissionControl/.build/
+MissionControl/.swiftpm/
+MissionControl/dist/
+
+# Local browser and UI verification artifacts
+output/playwright/
+

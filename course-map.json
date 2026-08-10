@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 1,
+  "course": {
+    "code": "BUS331",
+    "title": "Investments",
+    "term": "Fall 2026"
+  },
+  "sections": [
+    {
+      "id": "investment-overview",
+      "badge": "Investment Overview",
+      "title": "Chapters 1–4",
+      "displayOrder": 10
+    },
+    {
+      "id": "portfolio-theory",
+      "badge": "Portfolio Theory and Practice",
+      "title": "Chapters 5–7",
+      "displayOrder": 20
+    },
+    {
+      "id": "fixed-income",
+      "badge": "Fixed Income Securities",
+      "title": "Chapters 14–16",
+      "displayOrder": 30
+    },
+    {
+      "id": "equity-analysis",
+      "badge": "Equity Security Analysis",
+      "title": "Chapter 18",
+      "displayOrder": 40
+    },
+    {
+      "id": "derivatives",
+      "badge": "Options, Futures and Derivatives",
+      "title": "Chapters 20–23",
+      "displayOrder": 50
+    }
+  ],
+  "chapters": [
+    {
+      "id": "ch01",
+      "sectionId": "investment-overview",
+      "code": "BUS331-CH01",
+      "title": "The Investment Environment",
+      "topic": "Asset classes, financial markets, players, and the role of financial intermediaries",
+      "status": "live",
+      "visible": true,
+      "displayOrder": 10,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/l7kvd2b6grxefdv",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "ch02",
+      "sectionId": "investment-overview",
+      "code": "BUS331-CH02",
+      "title": "Asset Classes & Financial Instruments",
+      "topic": "Money market, bonds, equity, indexes — SPY, AAPL, MSFT as live examples",
+      "status": "live",
+      "visible": true,
+      "displayOrder": 20,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/252lm307bssc8d3",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "ch03",
+      "sectionId": "investment-overview",
+      "code": "BUS331-CH03",
+      "title": "How Securities Are Traded",
+      "topic": "Trading mechanics, order types, brokers and dealers, margin, and short sales",
+      "status": "live",
+      "visible": true,
+      "displayOrder": 30,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/adr6g96w3g2j0gd",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "ch04",
+      "sectionId": "investment-overview",
+      "code": "BUS331-CH04",
+      "title": "Mutual Funds & Other Investment Companies",
+      "topic": "Mutual funds, ETFs, net asset value, fees, and pooled investment structures",
+      "status": "live",
+      "visible": true,
+      "displayOrder": 40,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/gcc5isrj822rq6o",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "ch05",
+      "sectionId": "portfolio-theory",
+      "code": "BUS331-CH05",
+      "title": "Risk, Return & the Historical Record",
+      "topic": "HPR, EAR, variance, standard deviation, normal distribution, Sharpe ratio",
+      "status": "live",
+      "visible": true,
+      "displayOrder": 50,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/cw25yzqhjyla8wc",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "ch06",
+      "sectionId": "portfolio-theory",
+      "code": "BUS331-CH06",
+      "title": "Capital Allocation to Risky Assets",
+      "topic": "Risk aversion, utility, complete portfolio, the Capital Allocation Line",
+      "status": "live",
+      "visible": true,
+      "displayOrder": 60,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/8cbwbko9o1vz760",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "ch07",
+      "sectionId": "portfolio-theory",
+      "code": "BUS331-CH07",
+      "title": "Optimal Risky Portfolios",
+      "topic": "Diversification, covariance, correlation, efficient frontier, minimum variance portfolio",
+      "status": "live",
+      "visible": true,
+      "displayOrder": 70,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/5xfj6orsygyixjm",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "ch14",
+      "sectionId": "fixed-income",
+      "code": "BUS331-CH14",
+      "title": "Bond Prices & Yields",
+      "topic": "Bond pricing, YTM, YTC, current yield — semi-annual frequency throughout",
+      "status": "live",
+      "visible": true,
+      "displayOrder": 80,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/63db08omm9uxb68",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "ch15",
+      "sectionId": "fixed-income",
+      "code": "BUS331-CH15",
+      "title": "The Term Structure of Interest Rates",
+      "topic": "Yield curve, forward rates, duration, convexity, and interest rate risk",
+      "status": "live",
+      "visible": true,
+      "displayOrder": 90,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/rhwie3vmk5yqrhl",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "ch16",
+      "sectionId": "fixed-income",
+      "code": "BUS331-CH16",
+      "title": "Managing Bond Portfolios",
+      "topic": "Duration, convexity, immunization, and active and passive bond-management strategies",
+      "status": "comingSoon",
+      "visible": false,
+      "displayOrder": 100,
+      "links": []
+    },
+    {
+      "id": "ch18",
+      "sectionId": "equity-analysis",
+      "code": "BUS331-CH18",
+      "title": "Equity Valuation Models",
+      "topic": "DDM, PVGO, P/E ratios — valuing AAPL and MSFT with real data",
+      "status": "live",
+      "visible": true,
+      "displayOrder": 110,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/lmgash24zh8hv5v",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "ch20",
+      "sectionId": "derivatives",
+      "code": "BUS331-CH20",
+      "title": "Options Markets",
+      "topic": "Calls, puts, payoff diagrams, Black-Scholes intuition, options strategies",
+      "status": "live",
+      "visible": true,
+      "displayOrder": 120,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/c8n3jgl9u8hdlow",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "ch21",
+      "sectionId": "derivatives",
+      "code": "BUS331-CH21",
+      "title": "Option Valuation",
+      "topic": "Binomial pricing, Black-Scholes, implied volatility, and risk-neutral valuation",
+      "status": "live",
+      "visible": true,
+      "displayOrder": 130,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/eetmo99pujy35c0",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "ch22",
+      "sectionId": "derivatives",
+      "code": "BUS331-CH22",
+      "title": "Futures Markets",
+      "topic": "Futures contracts, market mechanics, pricing relationships, and hedging applications",
+      "status": "comingSoon",
+      "visible": false,
+      "displayOrder": 140,
+      "links": []
+    },
+    {
+      "id": "ch23",
+      "sectionId": "derivatives",
+      "code": "BUS331-CH23",
+      "title": "Futures, Swaps & Risk Management",
+      "topic": "Futures pricing, hedging strategies, swaps, and managing financial risk",
+      "status": "live",
+      "visible": true,
+      "displayOrder": 150,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/eqydv9541mhnuk1",
+          "style": "primary"
+        }
+      ]
+    }
+  ]
+}

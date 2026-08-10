@@ -1,0 +1,210 @@
+import { access, readFile } from "node:fs/promises";
+import path from "node:path";
+
+export const START_MARKER = "<!-- BUS331 COURSE MAP:START -->";
+export const END_MARKER = "<!-- BUS331 COURSE MAP:END -->";
+
+const ALLOWED_STATUSES = new Set(["live", "comingSoon"]);
+const ALLOWED_LINK_STYLES = new Set(["primary", "reference"]);
+const PRIVATE_PATH_PATTERN = /(^|[/_-])(instructor|answer[-_ ]?key|solutions?|grading|qti)([/_.-]|$)|\.zip$/i;
+
+export async function readCourseMap(sourcePath) {
+  let data;
+  try {
+    data = JSON.parse(await readFile(sourcePath, "utf8"));
+  } catch (error) {
+    throw new Error(`Could not parse ${sourcePath}: ${error.message}`);
+  }
+  return data;
+}
+
+export async function validateCourseMap(data, { repoRoot, checkLocalLinks = true } = {}) {
+  const errors = [];
+  const warnings = [];
+
+  if (!data || typeof data !== "object" || Array.isArray(data)) {
+    throw new Error("Course map root must be a JSON object.");
+  }
+  if (data.schemaVersion !== 1) errors.push("schemaVersion must be 1.");
+  if (!data.course || typeof data.course !== "object") errors.push("course is required.");
+  if (data.course?.code !== "BUS331") errors.push("course.code must be BUS331.");
+  if (!isNonemptyString(data.course?.title)) errors.push("course.title is required.");
+  if (!Array.isArray(data.sections)) errors.push("sections must be an array.");
+  if (!Array.isArray(data.chapters)) errors.push("chapters must be an array.");
+
+  const sectionIds = new Set();
+  const sectionOrders = new Set();
+  for (const section of data.sections ?? []) {
+    if (!isNonemptyString(section.id)) errors.push("Every section needs a non-empty id.");
+    else if (sectionIds.has(section.id)) errors.push(`Duplicate section id: ${section.id}.`);
+    else sectionIds.add(section.id);
+    if (!isNonemptyString(section.badge)) errors.push(`${section.id ?? "A section"} needs a badge.`);
+    if (!isNonemptyString(section.title)) errors.push(`${section.id ?? "A section"} needs a title.`);
+    if (!Number.isFinite(section.displayOrder)) errors.push(`${section.id ?? "A section"} needs a numeric displayOrder.`);
+    else if (sectionOrders.has(section.displayOrder)) errors.push(`Duplicate section displayOrder: ${section.displayOrder}.`);
+    else sectionOrders.add(section.displayOrder);
+  }
+
+  const chapterIds = new Set();
+  const chapterOrders = new Set();
+  for (const chapter of data.chapters ?? []) {
+    const label = chapter?.id ?? "A chapter";
+    if (!isNonemptyString(chapter.id)) errors.push("Every chapter needs a non-empty id.");
+    else if (chapterIds.has(chapter.id)) errors.push(`Duplicate chapter id: ${chapter.id}.`);
+    else chapterIds.add(chapter.id);
+    if (!sectionIds.has(chapter.sectionId)) errors.push(`${label} references unknown sectionId "${chapter.sectionId}".`);
+    for (const key of ["code", "title", "topic"]) {
+      if (!isNonemptyString(chapter[key])) errors.push(`${label} needs a non-empty ${key}.`);
+    }
+    if (typeof chapter.visible !== "boolean") errors.push(`${label}.visible must be true or false.`);
+    if (!ALLOWED_STATUSES.has(chapter.status)) errors.push(`${label} has unsupported status "${chapter.status}".`);
+    if (chapter.visible === true && chapter.status !== "live") errors.push(`${label} is available but its status is not live.`);
+    if (!Number.isFinite(chapter.displayOrder)) errors.push(`${label} needs a numeric displayOrder.`);
+    else if (chapterOrders.has(chapter.displayOrder)) errors.push(`Duplicate chapter displayOrder: ${chapter.displayOrder}.`);
+    else chapterOrders.add(chapter.displayOrder);
+    if (!Array.isArray(chapter.links)) {
+      errors.push(`${label}.links must be an array.`);
+      continue;
+    }
+    if (chapter.status === "live" && chapter.links.length === 0) {
+      errors.push(`${label} is live but has no links.`);
+    }
+    if (chapter.visible === true && chapter.links.length === 0) {
+      errors.push(`${label} is available but has no functional chapter link.`);
+    }
+    for (const link of chapter.links) {
+      if (!isNonemptyString(link.label)) errors.push(`${label} has a link without a label.`);
+      if (!isNonemptyString(link.url) || link.url === "#") errors.push(`${label} has a missing or placeholder link URL.`);
+      if (!ALLOWED_LINK_STYLES.has(link.style)) errors.push(`${label} has unsupported link style "${link.style}".`);
+      if (PRIVATE_PATH_PATTERN.test(link.url ?? "")) errors.push(`${label} links a private or non-public path: ${link.url}.`);
+      if (/^https?:\/\//i.test(link.url ?? "")) continue;
+      if (/^[a-z][a-z0-9+.-]*:/i.test(link.url ?? "")) {
+        errors.push(`${label} uses an unsupported URL scheme: ${link.url}.`);
+        continue;
+      }
+      if (checkLocalLinks && repoRoot && isNonemptyString(link.url)) {
+        const target = path.resolve(repoRoot, link.url);
+        const insideRepo = target === repoRoot || target.startsWith(`${repoRoot}${path.sep}`);
+        if (!insideRepo) errors.push(`${label} link escapes the repository: ${link.url}.`);
+        else {
+          try {
+            await access(target);
+          } catch {
+            warnings.push(`${label} local link is not available yet: ${link.url}.`);
+          }
+        }
+      }
+    }
+  }
+
+  if (errors.length) throw new Error(`Course map validation failed:\n- ${errors.join("\n- ")}`);
+  return { warnings };
+}
+
+export function renderCourseMap(data) {
+  const sections = [...data.sections].sort((a, b) => a.displayOrder - b.displayOrder);
+  const chapters = [...data.chapters].sort((a, b) => a.displayOrder - b.displayOrder);
+  const renderedSections = [];
+
+  for (const section of sections) {
+    const sectionChapters = chapters.filter((chapter) => chapter.sectionId === section.id);
+    if (sectionChapters.length === 0) continue;
+    renderedSections.push(`    <!-- Generated section: ${escapeHtml(section.id)} -->
+    <div class="module-block fade-section" data-course-section="${escapeHtml(section.id)}">
+      <div class="module-header">
+        <span class="module-badge">${escapeHtml(section.badge)}</span>
+        <span class="module-title">${escapeHtml(section.title)}</span>
+      </div>
+      <div class="lessons-grid">
+${sectionChapters.map(renderChapter).join("\n\n")}
+      </div>
+    </div>`);
+  }
+
+  return `${START_MARKER}\n${renderedSections.join("\n\n")}\n    ${END_MARKER}`;
+}
+
+export function replaceManagedCourseMap(indexHtml, rendered) {
+  const start = indexHtml.indexOf(START_MARKER);
+  const end = indexHtml.indexOf(END_MARKER);
+  if (start < 0 || end < 0 || end < start) {
+    throw new Error("index.html is missing the BUS331 course-map start/end markers.");
+  }
+  if (indexHtml.indexOf(START_MARKER, start + START_MARKER.length) >= 0 || indexHtml.indexOf(END_MARKER, end + END_MARKER.length) >= 0) {
+    throw new Error("index.html contains duplicate BUS331 course-map markers.");
+  }
+  return `${indexHtml.slice(0, start)}${rendered}${indexHtml.slice(end + END_MARKER.length)}`;
+}
+
+export function getManagedCourseMap(indexHtml) {
+  const start = indexHtml.indexOf(START_MARKER);
+  const end = indexHtml.indexOf(END_MARKER);
+  if (start < 0 || end < 0 || end < start) return null;
+  return indexHtml.slice(start, end + END_MARKER.length);
+}
+
+function renderChapter(chapter) {
+  const isAvailable = chapter.visible && chapter.status === "live";
+  if (!isAvailable) {
+    const titleId = `chapter-${chapter.id}-title`;
+    const topicId = `chapter-${chapter.id}-topic`;
+    const statusId = `chapter-${chapter.id}-status`;
+    return `        <article class="lesson-card lesson-card-unavailable" data-course-chapter="${escapeHtml(chapter.id)}" data-course-access="locked" aria-labelledby="${escapeHtml(titleId)}" aria-describedby="${escapeHtml(`${topicId} ${statusId}`)}">
+          <div class="lesson-code">${escapeHtml(chapter.code)}</div>
+          <div class="lesson-title" id="${escapeHtml(titleId)}">${escapeHtml(chapter.title)}</div>
+          <div class="lesson-topic" id="${escapeHtml(topicId)}">${escapeHtml(chapter.topic)}</div>
+          <span class="lesson-status" id="${escapeHtml(statusId)}">
+            ${lockIcon()}
+            Coming soon — access not yet available
+          </span>
+        </article>`;
+  }
+
+  if (chapter.links.length === 1) {
+    const link = chapter.links[0];
+    return `        <a class="lesson-card" data-course-chapter="${escapeHtml(chapter.id)}" data-course-access="available" href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(`${link.label} for ${chapter.title} in a new tab`)}">
+          <div class="lesson-code">${escapeHtml(chapter.code)}</div>
+          <div class="lesson-title">${escapeHtml(chapter.title)}</div>
+          <div class="lesson-topic">${escapeHtml(chapter.topic)}</div>
+          <span class="lesson-cta">${escapeHtml(link.label)}
+            ${arrowIcon()}
+          </span>
+        </a>`;
+  }
+
+  return `        <article class="lesson-card" data-course-chapter="${escapeHtml(chapter.id)}" data-course-access="available">
+          <div class="lesson-code">${escapeHtml(chapter.code)}</div>
+          <div class="lesson-title">${escapeHtml(chapter.title)}</div>
+          <div class="lesson-topic">${escapeHtml(chapter.topic)}</div>
+          <div class="lesson-actions">
+${chapter.links.map((link) => renderActionLink(chapter, link)).join("\n")}
+          </div>
+        </article>`;
+}
+
+function renderActionLink(chapter, link) {
+  const referenceClass = link.style === "reference" ? " lesson-cta-reference" : "";
+  return `            <a class="lesson-cta${referenceClass}" href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(`${link.label} for ${chapter.title} in a new tab`)}">${escapeHtml(link.label)}
+              ${arrowIcon()}
+            </a>`;
+}
+
+function arrowIcon() {
+  return '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+}
+
+function lockIcon() {
+  return '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="2.25" y="5.25" width="7.5" height="5" rx="1" stroke="currentColor" stroke-width="1.25"/><path d="M4 5.25V3.8a2 2 0 0 1 4 0v1.45" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>';
+}
+
+function isNonemptyString(value) {
+  return typeof value === "string" && value.trim().length > 0;
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}

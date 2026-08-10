@@ -294,7 +294,7 @@ nav {
   position: relative; overflow: hidden;
   transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
 }
-.lesson-card:not(.disabled):hover {
+.lesson-card:not(.disabled):not(.lesson-card-unavailable):hover {
   border-color: var(--accent); box-shadow: 0 4px 16px rgba(212,160,82,0.12); transform: translateY(-1px);
 }
 .lesson-card::before {
@@ -302,7 +302,7 @@ nav {
   background: var(--accent); transform: scaleY(0); transform-origin: bottom;
   transition: transform 0.2s ease; border-radius: 0 0 0 8px;
 }
-.lesson-card:not(.disabled):hover::before { transform: scaleY(1); }
+.lesson-card:not(.disabled):not(.lesson-card-unavailable):hover::before { transform: scaleY(1); }
 .lesson-code {
   font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.08em;
   text-transform: uppercase; color: var(--muted); margin-bottom: var(--sp-1);
@@ -314,9 +314,16 @@ nav {
   font-size: var(--text-xs); font-weight: 600; color: var(--accent);
   letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 4px; text-transform: uppercase;
 }
-.lesson-card.disabled { opacity: 0.45; cursor: default; }
-.lesson-card.disabled::before { display: none; }
+.lesson-card.disabled,
+.lesson-card-unavailable { opacity: 0.58; cursor: default; }
+.lesson-card.disabled::before,
+.lesson-card-unavailable::before { display: none; }
 .coming-badge { font-size: var(--text-xs); font-weight: 500; color: var(--muted); font-family: 'SF Mono','Fira Code',monospace; letter-spacing: 0.06em; }
+.lesson-status {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: var(--text-xs); font-weight: 600; color: var(--muted);
+  font-family: 'SF Mono','Fira Code',monospace; letter-spacing: 0.03em;
+}
 
 /* ══════════════════════════════════════════════════════
    INVESTMENT PROJECT BANNER
@@ -560,191 +567,189 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
       <p class="section-sub">Fifteen BKM chapters organized in the same five sections used in Connect.</p>
     </div>
 
-    <!-- ── INVESTMENT OVERVIEW: CHAPTERS 1–4 ── -->
-    <div class="module-block fade-section">
+    <!-- BUS331 COURSE MAP:START -->
+    <!-- Generated section: investment-overview -->
+    <div class="module-block fade-section" data-course-section="investment-overview">
       <div class="module-header">
-        <span class="module-badge">INVESTMENT OVERVIEW</span>
+        <span class="module-badge">Investment Overview</span>
         <span class="module-title">Chapters 1–4</span>
       </div>
       <div class="lessons-grid">
-
-        <a class="lesson-card" href="https://canva.link/l7kvd2b6grxefdv" target="_blank" rel="noopener noreferrer" aria-label="Open Chapter 1: The Investment Environment in Canva (opens in a new tab)">
+        <a class="lesson-card" data-course-chapter="ch01" data-course-access="available" href="https://canva.link/l7kvd2b6grxefdv" target="_blank" rel="noopener noreferrer" aria-label="Open lesson for The Investment Environment in a new tab">
           <div class="lesson-code">BUS331-CH01</div>
           <div class="lesson-title">The Investment Environment</div>
           <div class="lesson-topic">Asset classes, financial markets, players, and the role of financial intermediaries</div>
           <span class="lesson-cta">Open lesson
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </a>
 
-        <a class="lesson-card" href="https://canva.link/252lm307bssc8d3" target="_blank" rel="noopener noreferrer" aria-label="Open Chapter 2: Asset Classes and Financial Instruments in Canva (opens in a new tab)">
+        <a class="lesson-card" data-course-chapter="ch02" data-course-access="available" href="https://canva.link/252lm307bssc8d3" target="_blank" rel="noopener noreferrer" aria-label="Open lesson for Asset Classes &amp; Financial Instruments in a new tab">
           <div class="lesson-code">BUS331-CH02</div>
-          <div class="lesson-title">Asset Classes & Financial Instruments</div>
+          <div class="lesson-title">Asset Classes &amp; Financial Instruments</div>
           <div class="lesson-topic">Money market, bonds, equity, indexes — SPY, AAPL, MSFT as live examples</div>
           <span class="lesson-cta">Open lesson
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </a>
 
-        <a class="lesson-card" href="https://canva.link/adr6g96w3g2j0gd" target="_blank" rel="noopener noreferrer" aria-label="Open Chapter 3: How Securities Are Traded in Canva (opens in a new tab)">
+        <a class="lesson-card" data-course-chapter="ch03" data-course-access="available" href="https://canva.link/adr6g96w3g2j0gd" target="_blank" rel="noopener noreferrer" aria-label="Open lesson for How Securities Are Traded in a new tab">
           <div class="lesson-code">BUS331-CH03</div>
           <div class="lesson-title">How Securities Are Traded</div>
           <div class="lesson-topic">Trading mechanics, order types, brokers and dealers, margin, and short sales</div>
           <span class="lesson-cta">Open lesson
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </a>
 
-        <a class="lesson-card" href="https://canva.link/gcc5isrj822rq6o" target="_blank" rel="noopener noreferrer" aria-label="Open Chapter 4: Mutual Funds and Other Investment Companies in Canva (opens in a new tab)">
+        <a class="lesson-card" data-course-chapter="ch04" data-course-access="available" href="https://canva.link/gcc5isrj822rq6o" target="_blank" rel="noopener noreferrer" aria-label="Open lesson for Mutual Funds &amp; Other Investment Companies in a new tab">
           <div class="lesson-code">BUS331-CH04</div>
           <div class="lesson-title">Mutual Funds &amp; Other Investment Companies</div>
           <div class="lesson-topic">Mutual funds, ETFs, net asset value, fees, and pooled investment structures</div>
           <span class="lesson-cta">Open lesson
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </a>
-
       </div>
     </div>
 
-    <!-- ── PORTFOLIO THEORY AND PRACTICE: CHAPTERS 5–7 ── -->
-    <div class="module-block fade-section">
+    <!-- Generated section: portfolio-theory -->
+    <div class="module-block fade-section" data-course-section="portfolio-theory">
       <div class="module-header">
-        <span class="module-badge">PORTFOLIO THEORY AND PRACTICE</span>
+        <span class="module-badge">Portfolio Theory and Practice</span>
         <span class="module-title">Chapters 5–7</span>
       </div>
       <div class="lessons-grid">
-
-        <a class="lesson-card" href="https://canva.link/cw25yzqhjyla8wc" target="_blank" rel="noopener noreferrer" aria-label="Open Chapter 5: Risk, Return and the Historical Record in Canva (opens in a new tab)">
+        <a class="lesson-card" data-course-chapter="ch05" data-course-access="available" href="https://canva.link/cw25yzqhjyla8wc" target="_blank" rel="noopener noreferrer" aria-label="Open lesson for Risk, Return &amp; the Historical Record in a new tab">
           <div class="lesson-code">BUS331-CH05</div>
-          <div class="lesson-title">Risk, Return & the Historical Record</div>
+          <div class="lesson-title">Risk, Return &amp; the Historical Record</div>
           <div class="lesson-topic">HPR, EAR, variance, standard deviation, normal distribution, Sharpe ratio</div>
           <span class="lesson-cta">Open lesson
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </a>
 
-        <a class="lesson-card" href="https://canva.link/8cbwbko9o1vz760" target="_blank" rel="noopener noreferrer" aria-label="Open Chapter 6: Capital Allocation to Risky Assets in Canva (opens in a new tab)">
+        <a class="lesson-card" data-course-chapter="ch06" data-course-access="available" href="https://canva.link/8cbwbko9o1vz760" target="_blank" rel="noopener noreferrer" aria-label="Open lesson for Capital Allocation to Risky Assets in a new tab">
           <div class="lesson-code">BUS331-CH06</div>
           <div class="lesson-title">Capital Allocation to Risky Assets</div>
           <div class="lesson-topic">Risk aversion, utility, complete portfolio, the Capital Allocation Line</div>
           <span class="lesson-cta">Open lesson
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </a>
 
-        <a class="lesson-card" href="https://canva.link/5xfj6orsygyixjm" target="_blank" rel="noopener noreferrer" aria-label="Open Chapter 7: Optimal Risky Portfolios in Canva (opens in a new tab)">
+        <a class="lesson-card" data-course-chapter="ch07" data-course-access="available" href="https://canva.link/5xfj6orsygyixjm" target="_blank" rel="noopener noreferrer" aria-label="Open lesson for Optimal Risky Portfolios in a new tab">
           <div class="lesson-code">BUS331-CH07</div>
           <div class="lesson-title">Optimal Risky Portfolios</div>
           <div class="lesson-topic">Diversification, covariance, correlation, efficient frontier, minimum variance portfolio</div>
           <span class="lesson-cta">Open lesson
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </a>
-
       </div>
     </div>
 
-    <!-- ── FIXED INCOME SECURITIES: CHAPTERS 14–16 ── -->
-    <div class="module-block fade-section">
+    <!-- Generated section: fixed-income -->
+    <div class="module-block fade-section" data-course-section="fixed-income">
       <div class="module-header">
-        <span class="module-badge">FIXED INCOME SECURITIES</span>
+        <span class="module-badge">Fixed Income Securities</span>
         <span class="module-title">Chapters 14–16</span>
       </div>
       <div class="lessons-grid">
-
-        <a class="lesson-card" href="https://canva.link/63db08omm9uxb68" target="_blank" rel="noopener noreferrer" aria-label="Open Chapter 14: Bond Prices and Yields in Canva (opens in a new tab)">
+        <a class="lesson-card" data-course-chapter="ch14" data-course-access="available" href="https://canva.link/63db08omm9uxb68" target="_blank" rel="noopener noreferrer" aria-label="Open lesson for Bond Prices &amp; Yields in a new tab">
           <div class="lesson-code">BUS331-CH14</div>
-          <div class="lesson-title">Bond Prices & Yields</div>
+          <div class="lesson-title">Bond Prices &amp; Yields</div>
           <div class="lesson-topic">Bond pricing, YTM, YTC, current yield — semi-annual frequency throughout</div>
           <span class="lesson-cta">Open lesson
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </a>
 
-        <a class="lesson-card" href="https://canva.link/rhwie3vmk5yqrhl" target="_blank" rel="noopener noreferrer" aria-label="Open Chapter 15: The Term Structure of Interest Rates in Canva (opens in a new tab)">
+        <a class="lesson-card" data-course-chapter="ch15" data-course-access="available" href="https://canva.link/rhwie3vmk5yqrhl" target="_blank" rel="noopener noreferrer" aria-label="Open lesson for The Term Structure of Interest Rates in a new tab">
           <div class="lesson-code">BUS331-CH15</div>
           <div class="lesson-title">The Term Structure of Interest Rates</div>
           <div class="lesson-topic">Yield curve, forward rates, duration, convexity, and interest rate risk</div>
           <span class="lesson-cta">Open lesson
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </a>
 
-        <div class="lesson-card disabled">
+        <article class="lesson-card lesson-card-unavailable" data-course-chapter="ch16" data-course-access="locked" aria-labelledby="chapter-ch16-title" aria-describedby="chapter-ch16-topic chapter-ch16-status">
           <div class="lesson-code">BUS331-CH16</div>
-          <div class="lesson-title">Managing Bond Portfolios</div>
-          <div class="lesson-topic">Duration, convexity, immunization, and active and passive bond-management strategies</div>
-          <span class="coming-badge">Lesson coming soon</span>
-        </div>
-
+          <div class="lesson-title" id="chapter-ch16-title">Managing Bond Portfolios</div>
+          <div class="lesson-topic" id="chapter-ch16-topic">Duration, convexity, immunization, and active and passive bond-management strategies</div>
+          <span class="lesson-status" id="chapter-ch16-status">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="2.25" y="5.25" width="7.5" height="5" rx="1" stroke="currentColor" stroke-width="1.25"/><path d="M4 5.25V3.8a2 2 0 0 1 4 0v1.45" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>
+            Coming soon — access not yet available
+          </span>
+        </article>
       </div>
     </div>
 
-    <!-- ── EQUITY SECURITY ANALYSIS: CHAPTER 18 ── -->
-    <div class="module-block fade-section">
+    <!-- Generated section: equity-analysis -->
+    <div class="module-block fade-section" data-course-section="equity-analysis">
       <div class="module-header">
-        <span class="module-badge">EQUITY SECURITY ANALYSIS</span>
+        <span class="module-badge">Equity Security Analysis</span>
         <span class="module-title">Chapter 18</span>
       </div>
       <div class="lessons-grid">
-
-        <a class="lesson-card" href="https://canva.link/lmgash24zh8hv5v" target="_blank" rel="noopener noreferrer" aria-label="Open Chapter 18: Equity Valuation Models in Canva (opens in a new tab)">
+        <a class="lesson-card" data-course-chapter="ch18" data-course-access="available" href="https://canva.link/lmgash24zh8hv5v" target="_blank" rel="noopener noreferrer" aria-label="Open lesson for Equity Valuation Models in a new tab">
           <div class="lesson-code">BUS331-CH18</div>
           <div class="lesson-title">Equity Valuation Models</div>
           <div class="lesson-topic">DDM, PVGO, P/E ratios — valuing AAPL and MSFT with real data</div>
           <span class="lesson-cta">Open lesson
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </a>
-
       </div>
     </div>
 
-    <!-- ── OPTIONS, FUTURES AND DERIVATIVES: CHAPTERS 20–23 ── -->
-    <div class="module-block fade-section">
+    <!-- Generated section: derivatives -->
+    <div class="module-block fade-section" data-course-section="derivatives">
       <div class="module-header">
-        <span class="module-badge">OPTIONS, FUTURES AND DERIVATIVES</span>
+        <span class="module-badge">Options, Futures and Derivatives</span>
         <span class="module-title">Chapters 20–23</span>
       </div>
       <div class="lessons-grid">
-
-        <a class="lesson-card" href="https://canva.link/c8n3jgl9u8hdlow" target="_blank" rel="noopener noreferrer" aria-label="Open Chapter 20: Options Markets in Canva (opens in a new tab)">
+        <a class="lesson-card" data-course-chapter="ch20" data-course-access="available" href="https://canva.link/c8n3jgl9u8hdlow" target="_blank" rel="noopener noreferrer" aria-label="Open lesson for Options Markets in a new tab">
           <div class="lesson-code">BUS331-CH20</div>
           <div class="lesson-title">Options Markets</div>
           <div class="lesson-topic">Calls, puts, payoff diagrams, Black-Scholes intuition, options strategies</div>
           <span class="lesson-cta">Open lesson
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </a>
 
-        <a class="lesson-card" href="https://canva.link/eetmo99pujy35c0" target="_blank" rel="noopener noreferrer" aria-label="Open Chapter 21: Option Valuation in Canva (opens in a new tab)">
+        <a class="lesson-card" data-course-chapter="ch21" data-course-access="available" href="https://canva.link/eetmo99pujy35c0" target="_blank" rel="noopener noreferrer" aria-label="Open lesson for Option Valuation in a new tab">
           <div class="lesson-code">BUS331-CH21</div>
           <div class="lesson-title">Option Valuation</div>
           <div class="lesson-topic">Binomial pricing, Black-Scholes, implied volatility, and risk-neutral valuation</div>
           <span class="lesson-cta">Open lesson
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </a>
 
-        <div class="lesson-card disabled">
+        <article class="lesson-card lesson-card-unavailable" data-course-chapter="ch22" data-course-access="locked" aria-labelledby="chapter-ch22-title" aria-describedby="chapter-ch22-topic chapter-ch22-status">
           <div class="lesson-code">BUS331-CH22</div>
-          <div class="lesson-title">Futures Markets</div>
-          <div class="lesson-topic">Futures contracts, market mechanics, pricing relationships, and hedging applications</div>
-          <span class="coming-badge">Lesson coming soon</span>
-        </div>
+          <div class="lesson-title" id="chapter-ch22-title">Futures Markets</div>
+          <div class="lesson-topic" id="chapter-ch22-topic">Futures contracts, market mechanics, pricing relationships, and hedging applications</div>
+          <span class="lesson-status" id="chapter-ch22-status">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="2.25" y="5.25" width="7.5" height="5" rx="1" stroke="currentColor" stroke-width="1.25"/><path d="M4 5.25V3.8a2 2 0 0 1 4 0v1.45" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>
+            Coming soon — access not yet available
+          </span>
+        </article>
 
-        <a class="lesson-card" href="https://canva.link/eqydv9541mhnuk1" target="_blank" rel="noopener noreferrer" aria-label="Open Chapter 23: Futures, Swaps and Risk Management in Canva (opens in a new tab)">
+        <a class="lesson-card" data-course-chapter="ch23" data-course-access="available" href="https://canva.link/eqydv9541mhnuk1" target="_blank" rel="noopener noreferrer" aria-label="Open lesson for Futures, Swaps &amp; Risk Management in a new tab">
           <div class="lesson-code">BUS331-CH23</div>
           <div class="lesson-title">Futures, Swaps &amp; Risk Management</div>
           <div class="lesson-topic">Futures pricing, hedging strategies, swaps, and managing financial risk</div>
           <span class="lesson-cta">Open lesson
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </a>
-
       </div>
     </div>
+    <!-- BUS331 COURSE MAP:END -->
 
     <!-- ── INVESTMENT PROJECT BANNER ── -->
     <a class="project-banner fade-section" id="project" href="https://bevitts-design.github.io/BUS331-Investment-Project-Specific/" aria-label="Open the BUS331 Investment Project website">
