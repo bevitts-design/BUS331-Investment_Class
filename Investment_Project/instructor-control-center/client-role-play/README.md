@@ -2,7 +2,9 @@
 
 ## Classroom setup
 
-Use this activity after the macro-analysis work. Give only the assigned student the relevant sealed client card. That student is the client; the other three committee members are analysts. The client does not show or read the card aloud.
+Use this activity after the macro-analysis work. First have every team review its assigned-client PowerPoint slides. The slides are the baseline case file: age, occupation, income, net worth, stated goal, target return, volatility/risk classification, and stated constraint. Then give only the assigned student the relevant sealed client card. That student is the client; the other three committee members are analysts. The client does not show or read the card aloud. `Client_Scenarios_All_Teams_Instructor_Reference.pptx` is the complete, instructor-only reference deck; students receive only their team-specific deck.
+
+The role-play is not a hunt for required numeric inputs. It should help the team interpret and qualify the baseline facts: which goal comes first, timing and urgency of cash needs, risk willingness versus capacity, taxes or restrictions, and remaining information gaps.
 
 For the first interview, the Client and Macro Strategist begins as the client. Rotate the client role for the second and third cases. The Portfolio Manager and Risk Analyst is the continuing Decision Log recorder and timekeeper.
 
