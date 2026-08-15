@@ -96,7 +96,7 @@
       "title": "Mutual Funds & Other Investment Companies",
       "topic": "Mutual funds, ETFs, net asset value, fees, and pooled investment structures",
       "status": "live",
-      "visible": true,
+      "visible": false,
       "displayOrder": 40,
       "links": [
         {
@@ -113,7 +113,7 @@
       "title": "Risk, Return & the Historical Record",
       "topic": "HPR, EAR, variance, standard deviation, normal distribution, Sharpe ratio",
       "status": "live",
-      "visible": true,
+      "visible": false,
       "displayOrder": 50,
       "links": [
         {
@@ -130,7 +130,7 @@
       "title": "Capital Allocation to Risky Assets",
       "topic": "Risk aversion, utility, complete portfolio, the Capital Allocation Line",
       "status": "live",
-      "visible": true,
+      "visible": false,
       "displayOrder": 60,
       "links": [
         {
@@ -147,7 +147,7 @@
       "title": "Optimal Risky Portfolios",
       "topic": "Diversification, covariance, correlation, efficient frontier, minimum variance portfolio",
       "status": "live",
-      "visible": true,
+      "visible": false,
       "displayOrder": 70,
       "links": [
         {
@@ -164,7 +164,7 @@
       "title": "Bond Prices & Yields",
       "topic": "Bond pricing, YTM, YTC, current yield — semi-annual frequency throughout",
       "status": "live",
-      "visible": true,
+      "visible": false,
       "displayOrder": 80,
       "links": [
         {
@@ -181,7 +181,7 @@
       "title": "The Term Structure of Interest Rates",
       "topic": "Yield curve, forward rates, duration, convexity, and interest rate risk",
       "status": "live",
-      "visible": true,
+      "visible": false,
       "displayOrder": 90,
       "links": [
         {
@@ -209,7 +209,7 @@
       "title": "Equity Valuation Models",
       "topic": "DDM, PVGO, P/E ratios — valuing AAPL and MSFT with real data",
       "status": "live",
-      "visible": true,
+      "visible": false,
       "displayOrder": 110,
       "links": [
         {
@@ -226,7 +226,7 @@
       "title": "Options Markets",
       "topic": "Calls, puts, payoff diagrams, Black-Scholes intuition, options strategies",
       "status": "live",
-      "visible": true,
+      "visible": false,
       "displayOrder": 120,
       "links": [
         {
@@ -243,7 +243,7 @@
       "title": "Option Valuation",
       "topic": "Binomial pricing, Black-Scholes, implied volatility, and risk-neutral valuation",
       "status": "live",
-      "visible": true,
+      "visible": false,
       "displayOrder": 130,
       "links": [
         {
@@ -271,7 +271,7 @@
       "title": "Futures, Swaps & Risk Management",
       "topic": "Futures pricing, hedging strategies, swaps, and managing financial risk",
       "status": "live",
-      "visible": true,
+      "visible": false,
       "displayOrder": 150,
       "links": [
         {
