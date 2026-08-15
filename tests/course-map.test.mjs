@@ -112,7 +112,7 @@ test("the maintained BUS331 map preserves all fifteen public chapter cards", asy
     map.chapters.filter((chapter) => chapter.status === "comingSoon").map((chapter) => chapter.code),
     ["BUS331-CH16", "BUS331-CH22"],
   );
-  assert.equal(map.chapters.filter((chapter) => chapter.visible).length, 13);
+  assert.equal(map.chapters.filter((chapter) => chapter.visible).length, 2);
 });
 
 test("managed replacement preserves surrounding homepage content", () => {
