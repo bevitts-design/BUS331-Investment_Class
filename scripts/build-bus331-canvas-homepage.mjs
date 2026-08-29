@@ -29,6 +29,22 @@ const topicCards = page.courseTopics.map((topic, index) => {
         </div>`;
 }).join('');
 
+const portalColors = [
+  { accent: '#1B6F73', eyebrow: '#15565A', background: '#E1F0ED', button: '#1B6F73' },
+  { accent: '#B8843D', eyebrow: '#6E4E22', background: '#F3E8D4', button: '#8A622C' }
+];
+
+const portalCards = page.portals.map((portal, index) => {
+  const color = portalColors[index % portalColors.length];
+  return `
+        <div style="box-sizing:border-box;flex:1 1 320px;min-width:0;padding:22px;border:1px solid #DDD7CA;border-top:6px solid ${color.accent};border-radius:12px;background:${color.background};">
+          <p style="margin:0 0 7px;color:${color.eyebrow};font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;">Student portal</p>
+          <h3 style="margin:0 0 8px;color:#0A2540;font-size:23px;line-height:1.2;">${esc(portal.label)}</h3>
+          <p style="margin:0 0 16px;color:#34495E;font-size:15px;line-height:1.5;">${esc(portal.detail)}</p>
+          <a href="${esc(portal.href)}" target="_blank" rel="noopener" style="display:inline-block;padding:10px 14px;border-radius:7px;background:${color.button};color:#FFFFFF;font-weight:700;text-decoration:none;">${esc(portal.linkLabel)}</a>
+        </div>`;
+}).join('');
+
 const signalColors = [
   { border: '#6FA1C3', background: '#153D57', label: '#C6E2F2' },
   { border: '#57B8AC', background: '#10464C', label: '#BDE9E3' },
@@ -55,6 +71,7 @@ const html = `<!-- GENERATED FILE: edit scripts/canvas/bus331-homepage-content.m
       <p style="margin:0;font-size:13px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;">BUS331 &#183; Investments</p>
       <nav aria-label="Homepage sections" style="display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;">
         <a href="#bus331-course" style="color:#FFFFFF;text-decoration:underline;">Course</a>
+        <a href="#bus331-portals" style="color:#FFFFFF;text-decoration:underline;">Course portals</a>
         <a href="#bus331-materials" style="color:#FFFFFF;text-decoration:underline;">Materials</a>
         <a href="#bus331-contact" style="color:#FFFFFF;text-decoration:underline;">Contact</a>
       </nav>
@@ -107,6 +124,14 @@ const html = `<!-- GENERATED FILE: edit scripts/canvas/bus331-homepage-content.m
           <p style="margin:0;color:#0A2540;font-size:18px;font-weight:700;">${esc(page.course.name)}</p>
           <p style="margin:2px 0 0;color:#34495E;">${esc(page.course.code)}</p>
         </div>
+      </div>
+    </section>
+
+    <section id="bus331-portals" aria-labelledby="bus331-portals-heading" style="box-sizing:border-box;padding:34px 24px;background:#F2EEE5;border-bottom:1px solid #DDD7CA;">
+      <p style="margin:0 0 7px;color:#8A622C;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;">Start here</p>
+      <h2 id="bus331-portals-heading" style="margin:0 0 8px;color:#0A2540;font-size:28px;line-height:1.2;">Course portals</h2>
+      <p style="margin:0 0 18px;color:#34495E;">Use the Course Hub for class materials and the Investment Committee Project page for your team workflow.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;">${portalCards}
       </div>
     </section>
 

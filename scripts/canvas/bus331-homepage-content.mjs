@@ -20,6 +20,20 @@ export const bus331Homepage = {
     pageTitle: 'Syllabus',
     href: 'https://endicott.instructure.com/courses/58601/assignments/syllabus'
   },
+  portals: [
+    {
+      label: 'Course Hub',
+      detail: 'Find chapter materials, lesson links, and the current course pathway.',
+      linkLabel: 'Open the Course Hub',
+      href: 'https://endicott.instructure.com/courses/58601/pages/bus331-investment-course-hub-link'
+    },
+    {
+      label: 'Investment Committee Project',
+      detail: 'Access the project home page, workflow, and team resources.',
+      linkLabel: 'Open the Project',
+      href: 'https://endicott.instructure.com/courses/58601/pages/bus331-investment-project-home-page-link'
+    }
+  ],
   textbook: {
     title: 'Investments via Connect',
     edition: '13th Edition',

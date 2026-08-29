@@ -33,7 +33,12 @@ const requiredText = [
   'Market + company data',
   'Risk + return + value',
   'Select + size + monitor',
-  'Results become new evidence'
+  'Results become new evidence',
+  'Course portals',
+  'Course Hub',
+  'Investment Committee Project',
+  'Open the Course Hub',
+  'Open the Project'
 ];
 
 assert.equal(count(/<h1\b/g), 1, 'Canvas fragment must have exactly one h1');
@@ -52,6 +57,8 @@ for (const text of requiredText) {
 for (const requiredLink of [
   'https://endicott.instructure.com/courses/58601/assignments/syllabus',
   'https://endicott.instructure.com/courses/58601/pages/professor-evitts-office-hours-fall-2026',
+  'https://endicott.instructure.com/courses/58601/pages/bus331-investment-course-hub-link',
+  'https://endicott.instructure.com/courses/58601/pages/bus331-investment-project-home-page-link',
   'mailto:bevitts@endicott.edu',
   'tel:+16178772001'
 ]) {
