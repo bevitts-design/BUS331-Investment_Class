@@ -51,13 +51,14 @@ for (const text of requiredText) {
 
 for (const requiredLink of [
   'https://endicott.instructure.com/courses/58601/assignments/syllabus',
-  'https://calendar.app.google/5eJxeQnwMPdcJ8im8',
+  'https://endicott.instructure.com/courses/58601/pages/professor-evitts-office-hours-fall-2026',
   'mailto:bevitts@endicott.edu',
   'tel:+16178772001'
 ]) {
   assert.ok(html.includes(requiredLink), `Missing authoritative link: ${requiredLink}`);
 }
 
+assert.ok(!html.includes('https://calendar.app.google/'), 'Canvas homepage must not retain the retired Google booking link');
 assert.ok(!/data-api-(?:endpoint|returntype)/.test(html), 'Syllabus page links must not retain obsolete Canvas file metadata');
 assert.ok(!/<(?:script|style|link|html|head|body)\b/i.test(html), 'Canvas fragment must not use scripts, stylesheets, or document-level tags');
 assert.ok(!/href=["']#["']/i.test(html), 'Canvas fragment must not contain empty placeholder links');

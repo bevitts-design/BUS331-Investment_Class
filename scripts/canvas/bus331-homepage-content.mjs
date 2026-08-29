@@ -12,7 +12,7 @@ export const bus331Homepage = {
     phone: '617-877-2001',
     officeHours: {
       label: "Professor Evitts’ Office Hours",
-      href: 'https://calendar.app.google/5eJxeQnwMPdcJ8im8'
+      href: 'https://endicott.instructure.com/courses/58601/pages/professor-evitts-office-hours-fall-2026'
     }
   },
   syllabus: {
