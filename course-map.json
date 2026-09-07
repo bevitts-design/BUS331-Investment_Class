@@ -69,6 +69,11 @@
           "label": "Open lesson",
           "url": "https://canva.link/252lm307bssc8d3",
           "style": "primary"
+        },
+        {
+          "label": "Index calculation exercise (Excel)",
+          "url": "01- Intro-Investments/M02/Index Calculation Methodology-Student Version.xlsx",
+          "style": "reference"
         }
       ]
     },
