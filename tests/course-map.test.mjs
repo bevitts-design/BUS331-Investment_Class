@@ -112,7 +112,12 @@ test("the maintained BUS331 map preserves all fifteen public chapter cards", asy
     map.chapters.filter((chapter) => chapter.status === "comingSoon").map((chapter) => chapter.code),
     ["BUS331-CH16", "BUS331-CH22"],
   );
-  assert.equal(map.chapters.filter((chapter) => chapter.visible).length, 2);
+  // Chapter availability changes throughout the semester; follow the maintained map.
+  const html = renderCourseMap(map);
+  const availableCount = map.chapters.filter((chapter) => chapter.visible).length;
+  assert.equal([...html.matchAll(/data-course-chapter=/g)].length, map.chapters.length);
+  assert.equal([...html.matchAll(/data-course-access="available"/g)].length, availableCount);
+  assert.equal([...html.matchAll(/data-course-access="locked"/g)].length, map.chapters.length - availableCount);
 });
 
 test("managed replacement preserves surrounding homepage content", () => {

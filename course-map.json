@@ -84,7 +84,7 @@
       "title": "How Securities Are Traded",
       "topic": "Trading mechanics, order types, brokers and dealers, margin, and short sales",
       "status": "live",
-      "visible": false,
+      "visible": true,
       "displayOrder": 30,
       "links": [
         {
@@ -101,7 +101,7 @@
       "title": "Mutual Funds & Other Investment Companies",
       "topic": "Mutual funds, ETFs, net asset value, fees, and pooled investment structures",
       "status": "live",
-      "visible": false,
+      "visible": true,
       "displayOrder": 40,
       "links": [
         {
