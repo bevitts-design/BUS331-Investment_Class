@@ -91,6 +91,11 @@
           "label": "Open lesson",
           "url": "https://canva.link/adr6g96w3g2j0gd",
           "style": "primary"
+        },
+        {
+          "label": "Margin exercise (Excel)",
+          "url": "01- Intro-Investments/M03/%234 Margin Assignment in Excel - Student - Revised.xlsx",
+          "style": "reference"
         }
       ]
     },

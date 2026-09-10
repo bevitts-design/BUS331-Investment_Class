@@ -120,6 +120,17 @@ test("the maintained BUS331 map preserves all fifteen public chapter cards", asy
   assert.equal([...html.matchAll(/data-course-access="locked"/g)].length, map.chapters.length - availableCount);
 });
 
+test("encoded margin workbook link resolves to the local student file", async () => {
+  const repoRoot = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
+  const map = validMap();
+  map.chapters[0].links[0].url = "01- Intro-Investments/M03/%234 Margin Assignment in Excel - Student - Revised.xlsx";
+  const { warnings } = await validateCourseMap(map, { repoRoot });
+  assert.deepEqual(warnings, []);
+  const url = new URL(map.chapters[0].links[0].url, "https://example.com/");
+  assert.equal(url.hash, "");
+  assert.match(decodeURIComponent(url.pathname), /M03\/#4 Margin Assignment/);
+});
+
 test("managed replacement preserves surrounding homepage content", () => {
   const original = `before\n${START_MARKER}\nold\n${END_MARKER}\nafter`;
   const rendered = renderCourseMap(validMap());

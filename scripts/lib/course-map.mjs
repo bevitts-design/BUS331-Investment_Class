@@ -83,7 +83,7 @@ export async function validateCourseMap(data, { repoRoot, checkLocalLinks = true
         continue;
       }
       if (checkLocalLinks && repoRoot && isNonemptyString(link.url)) {
-        const target = path.resolve(repoRoot, link.url);
+        const target = path.resolve(repoRoot, decodeURIComponent(link.url));
         const insideRepo = target === repoRoot || target.startsWith(`${repoRoot}${path.sep}`);
         if (!insideRepo) errors.push(`${label} link escapes the repository: ${link.url}.`);
         else {
