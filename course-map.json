@@ -123,7 +123,7 @@
       "title": "Risk, Return & the Historical Record",
       "topic": "HPR, EAR, variance, standard deviation, normal distribution, Sharpe ratio",
       "status": "live",
-      "visible": false,
+      "visible": true,
       "displayOrder": 50,
       "links": [
         {
@@ -140,7 +140,7 @@
       "title": "Capital Allocation to Risky Assets",
       "topic": "Risk aversion, utility, complete portfolio, the Capital Allocation Line",
       "status": "live",
-      "visible": false,
+      "visible": true,
       "displayOrder": 60,
       "links": [
         {
@@ -157,7 +157,7 @@
       "title": "Optimal Risky Portfolios",
       "topic": "Diversification, covariance, correlation, efficient frontier, minimum variance portfolio",
       "status": "live",
-      "visible": false,
+      "visible": true,
       "displayOrder": 70,
       "links": [
         {
