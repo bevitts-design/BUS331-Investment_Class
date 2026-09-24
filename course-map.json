@@ -135,6 +135,11 @@
           "label": "Returns student template (Excel)",
           "url": "02-PORTFOLIO-THEORY/M05/BUS331_Returns_Student_Template.xlsx",
           "style": "reference"
+        },
+        {
+          "label": "Returns activity (Excel)",
+          "url": "02-PORTFOLIO-THEORY/M05/Returns_Activity_Student.xlsx",
+          "style": "reference"
         }
       ]
     },
