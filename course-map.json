@@ -130,6 +130,11 @@
           "label": "Open lesson",
           "url": "https://canva.link/k0h79s1qoxp9hgk",
           "style": "primary"
+        },
+        {
+          "label": "Returns student template (Excel)",
+          "url": "02-PORTFOLIO-THEORY/M05/BUS331_Returns_Student_Template.xlsx",
+          "style": "reference"
         }
       ]
     },
