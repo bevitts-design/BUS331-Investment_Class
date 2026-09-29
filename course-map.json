@@ -15,7 +15,7 @@
     {
       "id": "portfolio-theory",
       "badge": "Portfolio Theory and Practice",
-      "title": "Chapters 5–7",
+      "title": "Chapters 5–7 & 17",
       "displayOrder": 20
     },
     {
@@ -173,6 +173,23 @@
         {
           "label": "Open lesson",
           "url": "https://canva.link/5xfj6orsygyixjm",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "ch17",
+      "sectionId": "portfolio-theory",
+      "code": "BUS331-CH17",
+      "title": "Macroeconomic and Industry Analysis",
+      "topic": "Global and domestic economic conditions, business cycles, and industry analysis",
+      "status": "live",
+      "visible": true,
+      "displayOrder": 75,
+      "links": [
+        {
+          "label": "Open materials",
+          "url": "https://canva.link/7924e82yt8c5ztf",
           "style": "primary"
         }
       ]
