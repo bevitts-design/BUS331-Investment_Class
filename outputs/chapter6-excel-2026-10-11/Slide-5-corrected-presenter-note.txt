@@ -1,0 +1,5 @@
+E(R) = 10% = 0.10; A = 4; standard deviation = 20% = 0.20.
+Square standard deviation: variance = 0.20 squared = 0.04.
+Risk penalty = 0.5 × 4 × 0.04 = 0.08.
+Utility = 0.10 − 0.08 = 0.020.
+The risk penalty reflects this investor's aversion to uncertainty. It is not a fee or a forecast loss. Utility is a preference score, not a promised return.
