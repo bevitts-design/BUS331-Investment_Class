@@ -1,0 +1,212 @@
+[
+  {
+    "slide": 1,
+    "file": "01-can-a-mix-be-safer-than-either-fund.png",
+    "title": "Can a mix be safer than either fund?",
+    "connection": "Chapter 7 diversification",
+    "visual": "hook"
+  },
+  {
+    "slide": 2,
+    "file": "02-diversification-removes-firm-specific-risk.png",
+    "title": "Diversification removes firm-specific risk",
+    "connection": "Manual: diversification and portfolio risk",
+    "visual": "risk"
+  },
+  {
+    "slide": 3,
+    "file": "03-different-return-patterns-create-the-benefit.png",
+    "title": "Different return patterns create the benefit",
+    "connection": "Q2, Q3 and Q5",
+    "visual": "movement"
+  },
+  {
+    "slide": 4,
+    "file": "04-start-with-a-distribution-of-possible-returns.png",
+    "title": "Start with a distribution of possible returns",
+    "connection": "Q1\u2013Q2 method",
+    "visual": "table"
+  },
+  {
+    "slide": 5,
+    "file": "05-expected-return-is-the-probability-weighted-mean.png",
+    "title": "Expected return is the probability-weighted mean",
+    "connection": "Q1\u2013Q2 means",
+    "visual": "steps"
+  },
+  {
+    "slide": 6,
+    "file": "06-variance-measures-distance-from-the-mean.png",
+    "title": "Variance measures distance from the mean",
+    "connection": "Q1\u2013Q2 variance and SD",
+    "visual": "table"
+  },
+  {
+    "slide": 7,
+    "file": "07-build-the-statistics-with-cell-references.png",
+    "title": "Build the statistics with cell references",
+    "connection": "Q1\u2013Q2 Excel structure",
+    "visual": "sheet"
+  },
+  {
+    "slide": 8,
+    "file": "08-covariance-compares-deviations-in-the-same-state.png",
+    "title": "Covariance compares deviations in the same state",
+    "connection": "Q2 covariance",
+    "visual": "signs"
+  },
+  {
+    "slide": 9,
+    "file": "09-calculate-the-covariance-one-state-at-a-time.png",
+    "title": "Calculate the covariance one state at a time",
+    "connection": "Q2 probability-weighted covariance",
+    "visual": "table"
+  },
+  {
+    "slide": 10,
+    "file": "10-correlation-puts-covariance-on-a-common-scale.png",
+    "title": "Correlation puts covariance on a common scale",
+    "connection": "Q2 correlation",
+    "visual": "correlation"
+  },
+  {
+    "slide": 11,
+    "file": "11-your-turn--compare-two-equally-likely-states.png",
+    "title": "Your turn: compare two equally likely states",
+    "connection": "Practice for Q1\u2013Q2",
+    "visual": "table"
+  },
+  {
+    "slide": 12,
+    "file": "12-opposite-deviations-create-negative-correlation.png",
+    "title": "Opposite deviations create negative correlation",
+    "connection": "Debrief for Q1\u2013Q2",
+    "visual": "table"
+  },
+  {
+    "slide": 13,
+    "file": "13-historical-samples-need-sample-statistics.png",
+    "title": "Historical samples need sample statistics",
+    "connection": "Q4 method and input range",
+    "visual": "compare"
+  },
+  {
+    "slide": 14,
+    "file": "14-one-excel-function-estimates-sample-volatility.png",
+    "title": "One Excel function estimates sample volatility",
+    "connection": "Q4 STDEV.S and VAR.S",
+    "visual": "sheet"
+  },
+  {
+    "slide": 15,
+    "file": "15-carry-one-stock-bond-example-through-the-model.png",
+    "title": "Carry one stock\u2013bond example through the model",
+    "connection": "Related example for Q3 and Q5\u2013Q7",
+    "visual": "assets"
+  },
+  {
+    "slide": 16,
+    "file": "16-portfolio-return-weights-the-two-fund-means.png",
+    "title": "Portfolio return weights the two fund means",
+    "connection": "Q3 and Q5 expected return",
+    "visual": "allocation"
+  },
+  {
+    "slide": 17,
+    "file": "17-portfolio-variance-has-three-terms.png",
+    "title": "Portfolio variance has three terms",
+    "connection": "Q3 and Q5 portfolio risk",
+    "visual": "variance"
+  },
+  {
+    "slide": 18,
+    "file": "18-your-turn--increase-the-bond-share.png",
+    "title": "Your turn: increase the bond share",
+    "connection": "Practice for Q3 and Q5",
+    "visual": "practice"
+  },
+  {
+    "slide": 19,
+    "file": "19-a-small-stock-share-can-reduce-bond-only-risk.png",
+    "title": "A small stock share can reduce bond-only risk",
+    "connection": "Q3 and Q5 interpretation",
+    "visual": "steps"
+  },
+  {
+    "slide": 20,
+    "file": "20-lower-correlation-lowers-risk-at-fixed-weights.png",
+    "title": "Lower correlation lowers risk at fixed weights",
+    "connection": "Correlation effects; Q3 and Q5",
+    "visual": "corrbars"
+  },
+  {
+    "slide": 21,
+    "file": "21-vary-weights-without-moving-fixed-inputs.png",
+    "title": "Vary weights without moving fixed inputs",
+    "connection": "Q5 weight table and absolute references",
+    "visual": "sheet"
+  },
+  {
+    "slide": 22,
+    "file": "22-minimum-variance-finds-the-least-volatile-mix.png",
+    "title": "Minimum variance finds the least volatile mix",
+    "connection": "Manual objective; Q5 frontier interpretation",
+    "visual": "steps"
+  },
+  {
+    "slide": 23,
+    "file": "23-the-efficient-frontier-is-the-upper-boundary.png",
+    "title": "The efficient frontier is the upper boundary",
+    "connection": "Manual: Markowitz model and efficient frontier",
+    "visual": "frontier"
+  },
+  {
+    "slide": 24,
+    "file": "24-which-candidate-has-the-best-reward-per-risk.png",
+    "title": "Which candidate has the best reward per risk?",
+    "connection": "Q7 optimization objective",
+    "visual": "table"
+  },
+  {
+    "slide": 25,
+    "file": "25-60-40-wins-the-comparison--but-is-not-optimal.png",
+    "title": "60/40 wins the comparison, but is not optimal",
+    "connection": "Q6\u2013Q7 optimal risky portfolio",
+    "visual": "sharpe"
+  },
+  {
+    "slide": 26,
+    "file": "26-tangency-weights-maximize-the-sharpe-ratio.png",
+    "title": "Tangency weights maximize the Sharpe ratio",
+    "connection": "Q6 and Q7 formula logic",
+    "visual": "tangency"
+  },
+  {
+    "slide": 27,
+    "file": "27-construct-the-tangency-weights-in-excel.png",
+    "title": "Construct the tangency weights in Excel",
+    "connection": "Q6 structure; check for Q7",
+    "visual": "sheet"
+  },
+  {
+    "slide": 28,
+    "file": "28-total-returns-must-become-excess-returns-first.png",
+    "title": "Total returns must become excess returns first",
+    "connection": "Q6\u2013Q7 independent application",
+    "visual": "compare"
+  },
+  {
+    "slide": 29,
+    "file": "29-choose-the-risky-mix--then-choose-its-size.png",
+    "title": "Choose the risky mix, then choose its size",
+    "connection": "Manual: optimal complete portfolio; Chapter 6 bridge",
+    "visual": "separation"
+  },
+  {
+    "slide": 30,
+    "file": "30-diversification-is-powerful--but-has-limits.png",
+    "title": "Diversification is powerful, but has limits",
+    "connection": "Manual: pooling, sharing and long horizons; assignment synthesis",
+    "visual": "limits"
+  }
+]

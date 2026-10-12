@@ -1,0 +1,598 @@
+[
+  {
+    "title": "Can a mix be safer than either fund?",
+    "tag": "",
+    "kind": "hook",
+    "takeaway": "Diversification depends on how returns move together.",
+    "notes": "Ask for a prediction before showing the later minimum-variance result. All figures in this lesson are hypothetical annual returns, not market forecasts. Students should already know weights, percentages and Chapter 6's CAL.",
+    "link": "Chapter 7 diversification"
+  },
+  {
+    "title": "Diversification removes firm-specific risk",
+    "tag": "TWO SOURCES OF RISK",
+    "kind": "risk",
+    "takeaway": "A broad portfolio still faces recessions, inflation and rate changes.",
+    "notes": "A recall can affect one firm; a recession affects many. Diversification substantially reduces firm-specific risk but does not eliminate systematic risk. Do not claim every security falls in every market shock.",
+    "link": "Manual: diversification and portfolio risk"
+  },
+  {
+    "title": "Different return patterns create the benefit",
+    "tag": "CO-MOVEMENT",
+    "kind": "movement",
+    "takeaway": "More holdings help when their risks do not all move together.",
+    "notes": "Ask why buying ten firms in one narrow industry can leave concentrated exposure. Correlation describes return co-movement, not whether the two prices are high or low. Illustration is schematic.",
+    "link": "Q2, Q3 and Q5"
+  },
+  {
+    "title": "Start with a distribution of possible returns",
+    "tag": "WORKED SCENARIO",
+    "kind": "table",
+    "headers": [
+      "State",
+      "Probability",
+      "Stock return",
+      "Bond return"
+    ],
+    "rows": [
+      [
+        "Expansion",
+        "20%",
+        "25%",
+        "4%"
+      ],
+      [
+        "Stable growth",
+        "50%",
+        "10%",
+        "6%"
+      ],
+      [
+        "Contraction",
+        "30%",
+        "−10%",
+        "2%"
+      ]
+    ],
+    "aside": "Probabilities total 100%. Each row pairs returns in the same economic state.",
+    "takeaway": "These are possible outcomes with known probabilities, not historical observations.",
+    "notes": "This example transfers to Q1–Q2 but deliberately uses different data. In the practice layout, B5:B7 are probabilities, C5:C7 stocks and D5:D7 bonds.",
+    "link": "Q1–Q2 method"
+  },
+  {
+    "title": "Expected return is the probability-weighted mean",
+    "tag": "WORKED MEAN",
+    "kind": "steps",
+    "formula": "μ = E(R) = Σ p(i)R(i)",
+    "definitions": "p(i) = state probability; R(i) = return in that state; μ = expected return",
+    "steps": [
+      [
+        "Weight each stock return",
+        "0.20 × 25% + 0.50 × 10% + 0.30 × (−10%)"
+      ],
+      [
+        "Add the contributions",
+        "5% + 5% − 3% = 7.00%"
+      ],
+      [
+        "Repeat for bonds",
+        "0.20 × 4% + 0.50 × 6% + 0.30 × 2% = 4.40%"
+      ]
+    ],
+    "takeaway": "A 7% expected return is a long-run average across scenarios, not a promise.",
+    "notes": "Contrast with the unweighted stock mean of 8.33%. SUMPRODUCT multiplies corresponding rows and adds the products. Store rates as decimals; format as percentages.",
+    "link": "Q1–Q2 means"
+  },
+  {
+    "title": "Variance measures distance from the mean",
+    "tag": "WORKED RISK",
+    "kind": "table",
+    "formula": "σ² = Σ p(i)(R(i) − μ)²;     σ = √σ²",
+    "headers": [
+      "Stock state",
+      "Deviation from 7%",
+      "Weighted squared deviation"
+    ],
+    "rows": [
+      [
+        "Expansion",
+        "0.25 − 0.07 = 0.18",
+        "0.20 × 0.18² = 0.00648"
+      ],
+      [
+        "Stable growth",
+        "0.10 − 0.07 = 0.03",
+        "0.50 × 0.03² = 0.00045"
+      ],
+      [
+        "Contraction",
+        "−0.10 − 0.07 = −0.17",
+        "0.30 × (−0.17)² = 0.00867"
+      ]
+    ],
+    "aside": "σ² = 0.01560\nσ = 12.49%",
+    "takeaway": "Square deviations so gains and losses cannot cancel. SD returns to return units.",
+    "notes": "Variance uses squared decimal-return units, not percentage return units. Sigma is standard deviation. Bond variance is 0.000304 and bond SD is 1.744%; show the parallel Excel calculation next.",
+    "link": "Q1–Q2 variance and SD"
+  },
+  {
+    "title": "Build the statistics with cell references",
+    "tag": "EXCEL CONSTRUCTION · PRACTICE LAYOUT",
+    "kind": "sheet",
+    "formula": "F5: =(C5-$C$9)^2*B5",
+    "headers": [
+      "Cell / range",
+      "Stock calculation",
+      "Bond calculation"
+    ],
+    "rows": [
+      [
+        "C9 / D9",
+        "=SUMPRODUCT(B5:B7,C5:C7)",
+        "=SUMPRODUCT(B5:B7,D5:D7)"
+      ],
+      [
+        "F5 / G5",
+        "=(C5-$C$9)^2*B5",
+        "=(D5-$D$9)^2*B5"
+      ],
+      [
+        "F9 / G9",
+        "=SUM(F5:F7)",
+        "=SUM(G5:G7)"
+      ],
+      [
+        "B18 / C18",
+        "=SQRT(F9)",
+        "=SQRT(G9)"
+      ]
+    ],
+    "aside": "Fill F5:G5 through row 7. Results: stock μ 7%, σ 12.49%; bond μ 4.4%, σ 1.744%.",
+    "takeaway": "$ locks the mean while each state return and probability move down a row.",
+    "notes": "Use the three-state data on slide 4, with headers on row 4. This deliberately mirrors the reference's calculation locations but has only three states. Q1–Q2 extend through row 8; use all four assignment states. Helper calculations must link to the current mean. Actual workbook B16/C16 hold means and B17/C17 variances.",
+    "link": "Q1–Q2 Excel structure"
+  },
+  {
+    "title": "Covariance compares deviations in the same state",
+    "tag": "PAIRED DEVIATIONS",
+    "kind": "signs",
+    "formula": "c = Cov(S,B) = Σ p(i)(RS(i) − μS)(RB(i) − μB)",
+    "definitions": "S = stock; B = bond; c = covariance; μ = each fund’s own mean",
+    "takeaway": "Both above or both below their means add positive covariance.",
+    "notes": "A negative contribution occurs when one return is above its mean and the other below. Covariance is an average product of deviations, not an average of raw returns. Preserve the pairing of economic states.",
+    "link": "Q2 covariance"
+  },
+  {
+    "title": "Calculate the covariance one state at a time",
+    "tag": "WORKED COVARIANCE",
+    "kind": "table",
+    "headers": [
+      "State",
+      "p × stock deviation × bond deviation",
+      "Contribution"
+    ],
+    "rows": [
+      [
+        "Expansion",
+        "0.20 × 0.18 × (−0.004)",
+        "−0.000144"
+      ],
+      [
+        "Stable growth",
+        "0.50 × 0.03 × 0.016",
+        "0.000240"
+      ],
+      [
+        "Contraction",
+        "0.30 × (−0.17) × (−0.024)",
+        "0.001224"
+      ]
+    ],
+    "aside": "c = 0.001320\nMeans: stock 7%; bond 4.4%",
+    "takeaway": "Weight the paired products by their probabilities, then add them.",
+    "notes": "In a helper column H5 use =B5*(C5-$C$9)*(D5-$D$9), fill through H7, and sum. A conventional unweighted COVARIANCE function would not implement these unequal state probabilities.",
+    "link": "Q2 probability-weighted covariance"
+  },
+  {
+    "title": "Correlation puts covariance on a common scale",
+    "tag": "WORKED CORRELATION",
+    "kind": "correlation",
+    "formula": "ρ = c / (σS × σB)",
+    "definitions": "ρ = correlation, from −1 to +1; σS and σB = fund standard deviations",
+    "takeaway": "Positive correlation below +1 still permits diversification.",
+    "notes": "Calculation: .001320/(sqrt(.01560)*sqrt(.000304)) = .606143. Use unrounded SDs, not the rounded display. Zero correlation means no linear association, not necessarily independence.",
+    "link": "Q2 correlation"
+  },
+  {
+    "title": "Your turn: compare two equally likely states",
+    "tag": "GUIDED PRACTICE · ATTEMPT",
+    "kind": "table",
+    "headers": [
+      "State",
+      "Probability",
+      "Stock return",
+      "Bond return"
+    ],
+    "rows": [
+      [
+        "Strong economy",
+        "50%",
+        "20%",
+        "2%"
+      ],
+      [
+        "Weak economy",
+        "50%",
+        "0%",
+        "6%"
+      ]
+    ],
+    "aside": "Find both means and SDs. Then calculate covariance and correlation. Predict the sign first.",
+    "takeaway": "Use each asset’s own mean and match returns from the same state.",
+    "notes": "Keep slide 12 hidden until students have attempted. Ask for a signed covariance and a sentence explaining its sign. Students can use scratch cells; this is a formative exercise, not an assigned workbook solution.",
+    "link": "Practice for Q1–Q2"
+  },
+  {
+    "title": "Opposite deviations create negative correlation",
+    "tag": "GUIDED PRACTICE · REVEAL",
+    "kind": "table",
+    "headers": [
+      "Measure",
+      "Stock fund",
+      "Bond fund"
+    ],
+    "rows": [
+      [
+        "Mean",
+        "10%",
+        "4%"
+      ],
+      [
+        "Variance",
+        "0.0100",
+        "0.0004"
+      ],
+      [
+        "Standard deviation",
+        "10%",
+        "2%"
+      ]
+    ],
+    "aside": "c = 0.5(0.10)(−0.02) + 0.5(−0.10)(0.02) = −0.002\nρ = −0.002 / (0.10 × 0.02) = −1",
+    "takeaway": "Here, one fund is above its mean exactly when the other is below.",
+    "notes": "Explain that this two-state teaching example has perfect negative correlation by construction. That is not a realistic guarantee about stocks and bonds.",
+    "link": "Debrief for Q1–Q2"
+  },
+  {
+    "title": "Historical samples need sample statistics",
+    "tag": "CHOOSE THE METHOD",
+    "kind": "compare",
+    "left": [
+      "Known scenario probabilities",
+      "Weight returns by probabilities",
+      "Variance = Σ p(i)(R(i) − μ)²",
+      "Use SUMPRODUCT and SQRT"
+    ],
+    "right": [
+      "Observed historical sample",
+      "Each observation is one data point",
+      "Sample variance divides by n − 1",
+      "Use VAR.S and STDEV.S"
+    ],
+    "takeaway": "Q4 asks about a sample of 50 annual observations: use the .S functions.",
+    "notes": "Do not confuse a scenario distribution with a historical sample. For Q4, inspect the actual data B5:E54. Sample SD estimates volatility; the annual mean is not a guaranteed annual outcome.",
+    "link": "Q4 method and input range"
+  },
+  {
+    "title": "One Excel function estimates sample volatility",
+    "tag": "WORKED HISTORICAL SAMPLE",
+    "kind": "sheet",
+    "headers": [
+      "Cell / range",
+      "Input or formula",
+      "Meaning / result"
+    ],
+    "rows": [
+      [
+        "B5:B8",
+        "8%, −4%, 12%, 4%",
+        "Four hypothetical annual returns"
+      ],
+      [
+        "B10",
+        "=AVERAGE(B5:B8)",
+        "5.00% mean"
+      ],
+      [
+        "B11",
+        "=VAR.S(B5:B8)",
+        "0.00466667 variance"
+      ],
+      [
+        "B12",
+        "=STDEV.S(B5:B8)",
+        "6.831% standard deviation"
+      ]
+    ],
+    "aside": "Squared deviations total 0.014. Divide by 4 − 1, then take the square root.",
+    "takeaway": "Use one full, numeric return range. Do not include years or mix asset columns.",
+    "notes": "Check sample SD squared equals sample variance within rounding. Q4's saved output locations are B62:E62 for SD and B63:E63 for variance, using B5:E54. The classroom example uses a shorter scratch layout and different data.",
+    "link": "Q4 STDEV.S and VAR.S"
+  },
+  {
+    "title": "Carry one stock–bond example through the model",
+    "tag": "RUNNING EXAMPLE · HYPOTHETICAL ANNUAL INPUTS",
+    "kind": "assets",
+    "takeaway": "Keep expected returns, standard deviations and correlation consistent.",
+    "notes": "Switch explicitly from the state example to summary-statistic inputs. S means stock and B means bond. Expected returns 12%/6%, SDs 20%/10%, correlation .20, Rf 3%. These are not assignment answers or current market estimates.",
+    "link": "Related example for Q3 and Q5–Q7"
+  },
+  {
+    "title": "Portfolio return weights the two fund means",
+    "tag": "WORKED PORTFOLIO RETURN",
+    "kind": "allocation",
+    "formula": "E(RP) = wSμS + wBμB;     wS + wB = 1",
+    "definitions": "w = portfolio share; μ = expected fund return; P = combined risky portfolio",
+    "takeaway": "60% stocks and 40% bonds produce 9.60% expected return.",
+    "notes": "Calculation .6*.12+.4*.06=.096. The expected return lies between 6% and 12% for long-only weights. This result is for the classroom running example, not Q3.",
+    "link": "Q3 and Q5 expected return"
+  },
+  {
+    "title": "Portfolio variance has three terms",
+    "tag": "WORKED PORTFOLIO RISK",
+    "kind": "variance",
+    "formula": "σP² = wS²σS² + wB²σB² + 2wSwB c",
+    "definitions": "c = ρσSσB = 0.20 × 0.20 × 0.10 = 0.004",
+    "takeaway": "σP = √0.01792 = 13.39%, below the 16% weighted average of fund SDs.",
+    "notes": "Three terms are .0144, .0016, .00192. Add them; do not multiply terms together. Standard deviation is not usually the weighted average of individual SDs. Risk inputs are the same as slide 15.",
+    "link": "Q3 and Q5 portfolio risk"
+  },
+  {
+    "title": "Your turn: increase the bond share",
+    "tag": "GUIDED PRACTICE · ATTEMPT",
+    "kind": "practice",
+    "rows": [
+      [
+        "Stock expected return / SD",
+        "12% / 20%"
+      ],
+      [
+        "Bond expected return / SD",
+        "6% / 10%"
+      ],
+      [
+        "Correlation",
+        "0.20"
+      ],
+      [
+        "New weights",
+        "20% stocks / 80% bonds"
+      ]
+    ],
+    "aside": "Calculate expected return, covariance, portfolio variance and SD. Can this mix be less volatile than bonds alone?",
+    "takeaway": "Show all three variance terms before taking the square root.",
+    "notes": "Keep slide 19 hidden. Have students write a prediction about the SD before calculating. Covariance stays .004 because changing weights does not change the asset inputs.",
+    "link": "Practice for Q3 and Q5"
+  },
+  {
+    "title": "A small stock share can reduce bond-only risk",
+    "tag": "GUIDED PRACTICE · REVEAL",
+    "kind": "steps",
+    "formula": "σP² = 0.20²(0.20²) + 0.80²(0.10²) + 2(0.20)(0.80)(0.004)",
+    "steps": [
+      [
+        "Expected return",
+        "0.20 × 12% + 0.80 × 6% = 7.20%"
+      ],
+      [
+        "Portfolio variance",
+        "0.00160 + 0.00640 + 0.00128 = 0.00928"
+      ],
+      [
+        "Portfolio standard deviation",
+        "√0.00928 = 9.633%  <  10% bond-only SD"
+      ]
+    ],
+    "takeaway": "Imperfect co-movement can make the mix safer than either fund alone.",
+    "notes": "Compare the actual SD with weighted-average SD of 12%; they answer different calculations. Ask why adding a riskier fund can lower overall risk.",
+    "link": "Q3 and Q5 interpretation"
+  },
+  {
+    "title": "Lower correlation lowers risk at fixed weights",
+    "tag": "SENSITIVITY · SAME 60/40 MIX",
+    "kind": "corrbars",
+    "formula": "σP² = wS²σS² + wB²σB² + 2wSwBρσSσB",
+    "takeaway": "Expected return stays 9.60%; only the co-movement assumption changes.",
+    "notes": "At 60/40: correlation +1 SD16%, +.2 SD13.3866%, zero SD12.6491%, −1 SD8%. Long-only +1 gives no benefit against weighted-average SD. With −1, zero risk requires special weights: wS=σB/(σS+σB)=1/3 here, not arbitrary weights. At zero correlation covariance is zero.",
+    "link": "Correlation effects; Q3 and Q5"
+  },
+  {
+    "title": "Vary weights without moving fixed inputs",
+    "tag": "EXCEL SENSITIVITY · PRACTICE LAYOUT",
+    "kind": "sheet",
+    "headers": [
+      "Cell / range",
+      "Input or formula",
+      "Purpose"
+    ],
+    "rows": [
+      [
+        "B5:C5; B6:C6",
+        "12%, 6%; 20%, 10%",
+        "Means; SDs"
+      ],
+      [
+        "A9; A17:A27",
+        "0.20; 0%, 10%, …, 100%",
+        "Correlation; stock weights"
+      ],
+      [
+        "B17",
+        "=A17*$B$5+(1-A17)*$C$5",
+        "Portfolio mean"
+      ],
+      [
+        "C17",
+        "See formula below",
+        "Portfolio SD"
+      ]
+    ],
+    "aside": "C17: =SQRT((A17*$B$6)^2+((1-A17)*$C$6)^2\n+2*A17*(1-A17)*$A$9*$B$6*$C$6)",
+    "takeaway": "Fill down: A17 changes to A18; the means, SDs and correlation stay locked.",
+    "notes": "This layout mirrors Q5 with classroom data. Display formula as two lines only for legibility; enter it as one formula. In Q5 use its supplied inputs instead. Plot SD on x and expected return on y with an XY scatter chart. Spot-check 0% and 100% stock endpoints.",
+    "link": "Q5 weight table and absolute references"
+  },
+  {
+    "title": "Minimum variance finds the least volatile mix",
+    "tag": "WORKED MINIMUM-VARIANCE WEIGHT",
+    "kind": "steps",
+    "formula": "wS,MV = (σB² − c) / (σS² + σB² − 2c)",
+    "definitions": "MV = minimum variance; wB,MV = 1 − wS,MV; c = covariance",
+    "steps": [
+      [
+        "Use the running-example risk inputs",
+        "σS² = 0.04; σB² = 0.01; c = 0.004"
+      ],
+      [
+        "Calculate the stock share",
+        "(0.01 − 0.004)/(0.04 + 0.01 − 0.008) = 14.29%"
+      ],
+      [
+        "Calculate the resulting risk",
+        "85.71% bonds; expected return 6.857%; SD 9.562%"
+      ]
+    ],
+    "takeaway": "Minimum variance minimizes risk. It does not maximize the Sharpe ratio.",
+    "notes": "Manual objective explicitly includes finding the minimum-variance combination. The result is interior and long-only. If a formula yields weights outside 0–1, check whether short sales are allowed; long-only constraints may put the optimum at an endpoint.",
+    "link": "Manual objective; Q5 frontier interpretation"
+  },
+  {
+    "title": "The efficient frontier is the upper boundary",
+    "tag": "OPPORTUNITY SET",
+    "kind": "frontier",
+    "takeaway": "At the same risk, prefer the higher expected return under mean–variance assumptions.",
+    "notes": "Use the running-example two-asset locus. The lower branch is dominated; the minimum-variance point is the leftmost point. For many assets, Markowitz searches feasible combinations using means, variances and pairwise covariances. There are N(N−1)/2 distinct pairwise covariances. Efficient upper boundary, not any interior point.",
+    "link": "Manual: Markowitz model and efficient frontier"
+  },
+  {
+    "title": "Which candidate has the best reward per risk?",
+    "tag": "SHARPE · ATTEMPT",
+    "kind": "table",
+    "formula": "Sharpe = [E(RP) − Rf] / σP",
+    "headers": [
+      "Candidate",
+      "Expected return",
+      "Standard deviation"
+    ],
+    "rows": [
+      [
+        "100% stocks",
+        "12.00%",
+        "20.00%"
+      ],
+      [
+        "60% stocks / 40% bonds",
+        "9.60%",
+        "13.3866%"
+      ],
+      [
+        "100% bonds",
+        "6.00%",
+        "10.00%"
+      ]
+    ],
+    "aside": "Rf = 3%. Calculate and rank the three Sharpe ratios. Does the best candidate prove a global optimum?",
+    "takeaway": "Sharpe compares excess expected return per unit of total volatility.",
+    "notes": "Keep next slide hidden until attempt. Rf is the risk-free rate; use the same annual period and decimal convention as returns and SDs. Sharpe is dimensionless, not a percentage.",
+    "link": "Q7 optimization objective"
+  },
+  {
+    "title": "60/40 wins the comparison, but is not optimal",
+    "tag": "SHARPE · REVEAL",
+    "kind": "sharpe",
+    "takeaway": "Testing three candidates does not search every possible stock–bond mix.",
+    "notes": "Stocks .45, 60/40 .49303, bonds .30. The continuous running-example tangency mix has Sharpe .498435. Rounding can hide differences between nearby portfolios. A 10%-step table is useful exploration, not proof of the exact optimum.",
+    "link": "Q6–Q7 optimal risky portfolio"
+  },
+  {
+    "title": "Tangency weights maximize the Sharpe ratio",
+    "tag": "TWO RISKY ASSETS",
+    "kind": "tangency",
+    "formula": "wB* = (eBσS² − eS c) / [eBσS² + eSσB² − (eB + eS)c]",
+    "definitions": "eB = μB − Rf; eS = μS − Rf; c = ρσSσB; wS* = 1 − wB*",
+    "takeaway": "The optimal risky mix uses excess returns, variances and covariance.",
+    "notes": "Formula is for a nonsingular two-asset covariance model with a common risk-free rate and nondegenerate denominator. Check feasibility and investment constraints. In this lesson the solution is interior and feasible without short sales. Q6 supplies excess returns already; Q7 gives total means and Treasury bills.",
+    "link": "Q6 and Q7 formula logic"
+  },
+  {
+    "title": "Construct the tangency weights in Excel",
+    "tag": "WORKED OPTIMAL RISKY MIX · PRACTICE LAYOUT",
+    "kind": "sheet",
+    "headers": [
+      "Cell / range",
+      "Input or formula",
+      "Meaning"
+    ],
+    "rows": [
+      [
+        "B5:C5",
+        "3%, 9%",
+        "Bond / stock excess returns"
+      ],
+      [
+        "B6:C6; B9",
+        "10%, 20%; 0.004",
+        "Bond / stock SD; covariance"
+      ],
+      [
+        "B17",
+        "Numerator ÷ denominator",
+        "Optimal bond weight"
+      ],
+      [
+        "B18",
+        "=1-B17",
+        "Optimal stock weight"
+      ]
+    ],
+    "aside": "B17: =(B5*C6^2-C5*B9)/\n(B5*C6^2+C5*B6^2-(B5+C5)*B9)",
+    "takeaway": "51.85% bonds + 48.15% stocks: expected return 8.889%, SD 11.815%.",
+    "notes": "This mirrors Q6's bond-first input order but uses classroom inputs. Numerator .00084; denominator .00162. Recompute portfolio SD and Sharpe (.498435) from unrounded weights. The worksheet's excess-return input must not have Rf subtracted again.",
+    "link": "Q6 structure; check for Q7"
+  },
+  {
+    "title": "Total returns must become excess returns first",
+    "tag": "TRANSFER TO THE ASSIGNMENT",
+    "kind": "compare",
+    "left": [
+      "Q6: excess returns supplied",
+      "Use the given excess returns directly",
+      "Bond inputs are in column B",
+      "Weights belong in B17:B18"
+    ],
+    "right": [
+      "Q7: total returns supplied",
+      "Subtract the Treasury-bill return",
+      "Stock excess return: B20",
+      "Stock weight: C20; bond: C21"
+    ],
+    "takeaway": "Use the same method, but read each question’s labels and column order.",
+    "notes": "Q7 bond excess return is B21; bill benchmark is D5. Stock and bond SD inputs B6/C6; paired correlation B11 or C10. These are locations and construction guidance, not completed assignment answers. Do not treat zero bill SD as implying correlation is mathematically defined; covariance with a constant is zero.",
+    "link": "Q6–Q7 independent application"
+  },
+  {
+    "title": "Choose the risky mix, then choose its size",
+    "tag": "SEPARATION PROPERTY",
+    "kind": "separation",
+    "takeaway": "Risk preference changes the allocation to the risky mix and bills.",
+    "notes": "With shared expectations, a common risk-free rate and the same feasible investment set, the optimal risky composition is the same; risk aversion selects y. Classroom example y=.60 yields 28.89% stocks, 31.11% bonds, 40% bills, expected return6.5333%, SD7.0889%. CAL becomes CML only when risky portfolio is the market portfolio. Borrowing at a different rate or constraints can alter the result.",
+    "link": "Manual: optimal complete portfolio; Chapter 6 bridge"
+  },
+  {
+    "title": "Diversification is powerful, but has limits",
+    "tag": "SYNTHESIS AND MODEL CHECKS",
+    "kind": "limits",
+    "takeaway": "Before trusting a portfolio, check inputs, formulas, constraints and economic meaning.",
+    "notes": "Risk pooling adds independent exposures; total dollar risk may grow even if average loss becomes more stable. Risk sharing distributes a fixed exposure among more investors. A longer horizon does not guarantee smaller cumulative losses or make stocks risk-free. Finish by asking students to explain why a low SD and a high Sharpe answer different questions. Student workflow Q1 weighted moments, Q2 co-movement, Q3 combine, Q4 sample stats, Q5 vary weights, Q6–Q7 optimize. Trading and borrowing costs can reduce model benefits; different borrowing/lending rates can change the optimal choice. Further study includes VaR/CVaR, factor models, behavioral finance, dynamic rebalancing and alternative data; these are not required calculations for Q1–Q7.",
+    "link": "Manual: pooling, sharing and long horizons; assignment synthesis"
+  }
+]
