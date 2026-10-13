@@ -1,0 +1,21 @@
+Create ONE new landscape 16:9 classroom infographic matching the provided reference image's aesthetic: warm ivory paper, large Georgia-like serif navy headings, thin gold-bordered panels with gold header bands, restrained pale blue panel backgrounds, teal and steel-blue graphics, terra negative accents. Reference is style only; do not modify or copy its covariance title. No top section tags, no footer metadata, page numbers, or badges. Classroom-readable, clean and less crowded than reference. This is a new Canva-copyable correlation teaching image.
+Main title verbatim: "Correlation: how closely do two investments move together?"
+Subtitle verbatim: "Correlation puts covariance on a common scale from −1 to +1."
+Upper left panel title "Same simple example: two equally likely outcomes".
+Table columns "Economic outcome", "Stock fund", "Bond fund". Rows "Growth", "8%", "0%"; "Slowdown", "0%", "4%". Small line "Hypothetical returns". Beneath show "Stock average: 4%" and "Bond average: 2%".
+Upper right panel title "Opposite movements, different sizes". Clear two-outcome line graphic of deviations from EACH FUND'S OWN AVERAGE: x-axis labels Growth, Slowdown; y-axis "Deviation from own average (percentage points)" with horizontal zero baseline and ticks −4, −2, 0, +2, +4. Stock teal line connects +4 at Growth to −4 at Slowdown. Bond steel-blue line connects −2 at Growth to +2 at Slowdown. Both straight lines intersect at zero halfway. Direct label Stock and Bond at endpoints. Exact note below graph: "Correlation = −1: perfectly opposite in this two-state example." Explain beside or below: "The stock swings twice as much. Correlation measures the pattern, not equal-sized swings."
+Middle: a comparison of two clear compact statements, heading "How it differs from covariance":
+Left "Covariance" and text "Shows the direction of joint deviations. Its size depends on both funds’ volatility and the units used."
+Right "Correlation" and text "Shows the direction and strength of a linear relationship on a standard scale. It has no units."
+A concise formula (human readable, not too dominant): "Correlation = Covariance ÷ (Stock SD × Bond SD)"
+Optional numerical line to anchor same example, include EXACT: "Using decimal returns: −0.0008 ÷ (0.04 × 0.02) = −1". These are probability-weighted population moments for two equally likely hypothetical states. Do NOT use sample n−1 values. Thus stock SD4%, bond SD2%. Do NOT label covariance as a percent. Preserve signs precisely.
+Lower area a horizontal correlation scale from −1 to 0 to +1 with three mini scatterplots, equally sized and clearly labelled:
+"−1: perfectly opposite" descending collinear points.
+"0: no linear relationship" symmetric balanced scatter of eight points around center, no line or directional trend. State no LINEAR relationship, not no relationship or independence.
+"+1: perfectly together" ascending collinear points.
+Scatter axes labelled "Stock return" horizontally and "Bond return" vertically, small but readable. Each plot's points paired in same observation. Ensure negative slope is on −1 and positive slope on +1.
+Bottom takeaway, not a footer label: "Lower correlation can improve diversification. It does not guarantee safety."
+No claims of causation, no actual market forecasts, no historical correlation assumptions. All text spelled accurately, diagrams quantitatively correct, strong hierarchy, generous whitespace.
+
+Final refinement:
+Edit this infographic with one precise change only: remove the entire small paragraph beneath the decimal-return calculation that starts 'These are probability-weighted population moments...' and ends 'Do not use sample n−1 values.' That paragraph is production detail and should not appear in the student-facing image. Leave clean whitespace below the calculation, or center the formula and decimal calculation vertically within that right-hand area of the comparison panel. Preserve all other wording, figures, diagrams, values, colors, fonts, layout, and dimensions unchanged. Keep the formula and the line 'Using decimal returns: −0.0008 ÷ (0.04 × 0.02) = −1' exactly.

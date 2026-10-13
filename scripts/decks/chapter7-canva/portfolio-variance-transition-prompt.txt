@@ -1,0 +1,18 @@
+Create one new polished landscape 16:9 classroom infographic for BUS331 investments, matching the style of the provided reference only: warm ivory paper background #FAF8F3, large navy Georgia-like serif headings, pale blue explanatory surfaces, thin gold borders and gold heading bands, teal for stock, steel blue for bond, terra for co-movement. Large projector-readable text and generous whitespace. No green section tags, no footer metadata or page numbering. This is a standalone Canva-ready teaching image.
+Main title verbatim: "How risky is the portfolio when we combine the funds?"
+Below title, concise transition sentence verbatim: "We know each fund’s risk and how their returns move together. Now add the portfolio weights."
+Dominant central mathematical formula accurately typeset with consistent subscripts, superscripts, parentheses and operators:
+"σ_P² = w_S² σ_S² + w_B² σ_B² + 2 w_S w_B Cov(S,B)"
+Color-code the three additive terms and connect each with a thin leader line to its own explanation below, each a purposeful infographic element rather than decorative cards:
+1 teal term w_S² σ_S² labelled "Stock risk contribution". Explanation "Stock weight squared × stock variance". Small graphic stock fund icon with allocation slice.
+2 steel-blue term w_B² σ_B² labelled "Bond risk contribution". Explanation "Bond weight squared × bond variance". Small graphic bond fund icon with allocation slice.
+3 terra term 2 w_S w_B Cov(S,B) labelled "Co-movement contribution". Explanation "Both weights × covariance × 2". Small paired jagged-line graphic (schematic co-movement, label stock/bond if shown).
+Make the large plus signs unmistakable: these are three terms ADDED together. No implication covariance always negative. Near covariance explanation in clear plain text: "Positive covariance adds to variance; negative covariance offsets part of it."
+A readable symbol key separate from explanation:
+"w_S and w_B = stock and bond shares; w_S + w_B = 1"
+"σ_S² and σ_B² = each fund’s variance"
+"Cov(S,B) = covariance of stock and bond returns"
+"σ_P² = portfolio variance"
+A small conceptual process graphic near lower section, readable and not redundant: "Fund risk + Weights + Co-movement" leads to "Portfolio variance", then arrow labelled "Take the square root" to "Portfolio standard deviation". Beside the endpoint show accurate formula: "σ_P = √(σ_P²)".
+Bottom teaching question in a gold-bordered band, verbatim: "Predict: is portfolio standard deviation just the weighted average of the two fund standard deviations?"
+Do not reveal an answer to this prediction. Do not include a numerical solved portfolio or additional unrelated equations. Make this a transition that links previous economic-scenario covariance to subsequent portfolio calculation. Maintain correct financial relationships and typography. Reference's example numbers must NOT be copied into this image; use formula and conceptual graphics only.

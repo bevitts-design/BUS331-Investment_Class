@@ -1,0 +1,62 @@
+[
+  {
+    "file": "01-transition.png",
+    "title": "From two funds to a four-asset portfolio"
+  },
+  {
+    "file": "02-teaching-table.png",
+    "title": "Start with prices on matching dates"
+  },
+  {
+    "file": "03-calculation.png",
+    "title": "Turn a price change into a daily return"
+  },
+  {
+    "file": "04-log-explainer.png",
+    "title": "Why use LN returns? They add across time"
+  },
+  {
+    "file": "05-teaching-table.png",
+    "title": "Returns reveal the pattern that prices hide"
+  },
+  {
+    "file": "06-teaching-table.png",
+    "title": "Covariance starts with deviations from averages"
+  },
+  {
+    "file": "07-calculation.png",
+    "title": "Negative covariance reveals offsetting movement"
+  },
+  {
+    "file": "08-teaching-table.png",
+    "title": "A matrix organizes every asset pair"
+  },
+  {
+    "file": "09-teaching-table.png",
+    "title": "Weights turn asset returns into portfolio returns"
+  },
+  {
+    "file": "10-calculation.png",
+    "title": "Portfolio risk is the spread of portfolio returns"
+  },
+  {
+    "file": "11-calculation.png",
+    "title": "The covariance matrix gives the same portfolio risk"
+  },
+  {
+    "file": "12-calculation.png",
+    "title": "Annualize only after calculating daily risk"
+  },
+  {
+    "file": "13-calculation.png",
+    "title": "Now construct the analysis independently"
+  },
+  {
+    "file": "14-sharpe.png",
+    "title": "Sharpe ratio: excess return per unit of risk"
+  },
+  {
+    "file": "15-solver.png",
+    "title": "Use Solver to maximize the Sharpe ratio"
+  }
+]

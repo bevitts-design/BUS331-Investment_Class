@@ -1,0 +1,18 @@
+Create one new landscape 16:9 educational infographic matching the reference image: ivory paper background, navy Georgia-like serif typography, thin gold-bordered panels with gold heading bands, pale blue interiors, teal and steel blue accents. Large readable mathematical notation, generous whitespace, no tiny text, no footer metadata, no green section labels. Title: "Covariance and correlation: the formulas".
+Two main aligned panels:
+LEFT heading "Covariance". Dominant formula with accurately typeset subscripts and a summation over states i: "Cov(S,B) = Σ pᵢ [Rₛ,ᵢ − μₛ][Rᵦ,ᵢ − μᵦ]". Interpret in plain English: "Multiply each pair of deviations from their own means, weight by probability, then add."
+RIGHT heading "Correlation". Dominant stacked fraction: "ρₛᵦ = Cov(S,B) / (σₛ × σᵦ)". The numerator Cov(S,B) must appear above a horizontal fraction rule and denominator σₛ × σᵦ below. Interpret: "Divide covariance by the two standard deviations to put it on a scale from −1 to +1." Smaller statement "Correlation has no units."
+Under both panels a concise readable shared key titled "What the symbols mean":
+"pᵢ: probability of state i"
+"Rₛ,ᵢ and Rᵦ,ᵢ: stock and bond returns in state i"
+"μₛ and μᵦ: each fund’s expected return"
+"σₛ and σᵦ: stock and bond standard deviations"
+"ρₛᵦ: stock–bond correlation"
+Use correct Greek letters and subscript S/B i (capital S/B or lowercase s/b acceptable if consistent throughout). Do not confuse sigma σ with zero or rho ρ with p. The Σ means sum across states.
+Bottom worked-example band titled "Same two-state example: growth and slowdown are equally likely".
+Use the same numerical example from reference: stock returns8% and0%, stock mean4% and SD4%; bond returns0% and4%, bond mean2% andSD2%. Show all numeric substitution in DECIMAL RETURN units.
+A compact input line: "Stock: 8%, 0% → mean 4%, SD 4%     Bond: 0%, 4% → mean 2%, SD 2%".
+Covariance calculation, exact: "0.50(0.08 − 0.04)(0.00 − 0.02) + 0.50(0.00 − 0.04)(0.04 − 0.02) = −0.0008". Split into two lines for legibility if needed.
+Correlation calculation, exact: "−0.0008 ÷ (0.04 × 0.02) = −1".
+End takeaway: "Covariance is negative; correlation confirms perfectly opposite movements in this example."
+Include small purposeful visual bridge between panels (covariance value goes through dividing by both SDs to become correlation), not extra graphs. Label formula method "For states with known probabilities". This distinguishes probability-weighted covariance from historical sample covariance. Do not include sample n−1 formula or production instructions. Do not label covariance as a percent. No market forecasts or claim all stock/bond funds have −1 correlation. Check formula syntax, arithmetic, subscripts, text spelling and readability. Reference supplies style and example only; create a NEW formula infographic.

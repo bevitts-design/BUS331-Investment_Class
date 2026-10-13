@@ -1,0 +1,450 @@
+[
+  {
+    "title": "From two funds to a four-asset portfolio",
+    "subtitle": "The idea stays the same. A matrix organizes every pair’s co-movement.",
+    "kind": "transition",
+    "groups": [
+      [
+        "SPY",
+        "S&P 500 stocks"
+      ],
+      [
+        "GLD",
+        "Gold exposure"
+      ],
+      [
+        "MSFT",
+        "One company’s equity"
+      ],
+      [
+        "VCIT",
+        "Corporate bonds"
+      ]
+    ],
+    "steps": [
+      "Daily prices → daily returns",
+      "Returns → covariance matrix",
+      "Weights + matrix → portfolio risk"
+    ],
+    "takeaway": "Start with 25% in each asset. What happens to risk when the weights change?",
+    "notes": "Start with equal weights in SPY, GLD, MSFT and VCIT. Four assets require four variances and six distinct pairwise covariances. More tickers do not guarantee diversification: fund and individual-stock exposures can overlap. Students will identify their own workbook inputs and construct their own formulas. Ask which pair might move most closely together."
+  },
+  {
+    "title": "Start with prices on matching dates",
+    "subtitle": "Hypothetical SPY and GLD prices • no distributions or external cash flows",
+    "kind": "teaching-table",
+    "headers": [
+      "Trading day",
+      "SPY price",
+      "GLD price"
+    ],
+    "rows": [
+      [
+        "1",
+        "$100.00",
+        "$100.00"
+      ],
+      [
+        "2",
+        "$102.00",
+        "$99.00"
+      ],
+      [
+        "3",
+        "$100.98",
+        "$100.98"
+      ],
+      [
+        "4",
+        "$104.0094",
+        "$100.98"
+      ]
+    ],
+    "explain": [
+      "One row represents the same trading day for both assets.",
+      "Before calculating: check dates, missing prices and adjustment metadata."
+    ],
+    "takeaway": "Predict with a partner: on day 2, which asset gained and which lost?",
+    "notes": "Allow a brief paired prediction, then ask for evidence. SPY rises $2; GLD falls $1. Prices alone are not comparable percentage performance. Use appropriately adjusted data for total-return analysis and check provider definitions. Four prices provide three returns. The hypothetical values are chosen to produce exact simple returns; do not present them as market history."
+  },
+  {
+    "title": "Turn a price change into a daily return",
+    "subtitle": "Return expresses the change relative to the money invested yesterday.",
+    "kind": "calculation",
+    "groups": [
+      [
+        "Relationship",
+        "Simple return = today’s price / yesterday’s price − 1"
+      ],
+      [
+        "Day 2: SPY",
+        "102 / 100 − 1 = 0.02 = 2%"
+      ],
+      [
+        "Your turn: GLD",
+        "Use $100 yesterday and $99 today. Explain the sign."
+      ]
+    ],
+    "steps": [
+      "Repeat for each pair of consecutive prices, for every asset.",
+      "The first price has no preceding price: leave its return unavailable."
+    ],
+    "takeaway": "Build your own formula. Check that a price decline gives a negative return.",
+    "notes": "Ask students to calculate GLD independently before debriefing: 99/100−1 = −1%. The denominator is yesterday’s price, not today’s. Store returns as decimals and display percentages. Each valid historical day is an equally weighted observation, unlike forecast states with assigned probabilities. Students locate their own inputs and choose their own formula references."
+  },
+  {
+    "title": "Why use LN returns? They add across time",
+    "subtitle": "A common modeling convention: convenient for compounding and close to small daily % returns.",
+    "kind": "log-explainer",
+    "example": [
+      "One day: $100 to $102",
+      "Simple return = 2.0000%",
+      "LN(102/100) = 1.9803%"
+    ],
+    "groups": [
+      [
+        "ACROSS TIME • one asset, two days",
+        "$100 > $102 > $104.04",
+        "Log returns: 1.9803% + 1.9803%",
+        "Total log return = 3.9605%",
+        "Convert back: EXP(0.039605)-1",
+        "Total simple return = 4.04%"
+      ],
+      [
+        "ACROSS ASSETS • two assets, one day",
+        "50% in A (+2%); 50% in B (−2%)",
+        "Portfolio simple return:",
+        "50% × 2% + 50% × (−2%) = 0%",
+        "Exact portfolio log return = LN(1) = 0",
+        "Weighted asset logs are not exact."
+      ]
+    ],
+    "takeaway": "Add LOG returns across time. Weight SIMPLE returns across assets.",
+    "notes": "Natural log return is ln(today’s price / yesterday’s price). It describes continuously compounded growth. Log returns add across time; simple returns compound. Two consecutive 2% simple returns produce 4.04% cumulative growth. Weighted simple asset returns produce exact one-day portfolio returns using beginning-of-day weights. Individual asset log returns cannot be weighted to obtain the exact portfolio log return. Log covariance provides an approximation to simple-return portfolio volatility. Ask students to distinguish aggregation across time from aggregation across assets."
+  },
+  {
+    "title": "Returns reveal the pattern that prices hide",
+    "subtitle": "Debrief: the same three daily observations will drive every next step.",
+    "kind": "teaching-table",
+    "headers": [
+      "Trading day",
+      "SPY simple return",
+      "GLD simple return"
+    ],
+    "rows": [
+      [
+        "2",
+        "+2.00%",
+        "−1.00%"
+      ],
+      [
+        "3",
+        "−1.00%",
+        "+2.00%"
+      ],
+      [
+        "4",
+        "+3.00%",
+        "0.00%"
+      ]
+    ],
+    "explain": [
+      "SPY average daily return = 1.3333%; GLD = 0.3333%.",
+      "Volatility measures dispersion around each asset’s own average."
+    ],
+    "takeaway": "Predict: which asset has the greater daily volatility?",
+    "notes": "Debrief the earlier GLD calculation before moving on. SPY sample daily standard deviation is 2.0817%; GLD is 1.5275%. Students can select a suitable sample standard-deviation method themselves. These three days demonstrate mechanics only; they are not a reliable estimate or forecast. Average return and volatility answer different questions."
+  },
+  {
+    "title": "Covariance starts with deviations from averages",
+    "subtitle": "Subtract each asset’s own average • pp = percentage points.",
+    "kind": "teaching-table",
+    "headers": [
+      "Trading day",
+      "SPY deviation",
+      "GLD deviation"
+    ],
+    "rows": [
+      [
+        "2",
+        "+0.6667 pp",
+        "−1.3333 pp"
+      ],
+      [
+        "3",
+        "−2.3333 pp",
+        "+1.6667 pp"
+      ],
+      [
+        "4",
+        "+1.6667 pp",
+        "−0.3333 pp"
+      ]
+    ],
+    "explain": [
+      "Above average = positive deviation; below average = negative deviation.",
+      "Multiply each same-day pair. Predict the sign of every product."
+    ],
+    "takeaway": "Discuss with a partner: do these deviations reinforce or offset each other?",
+    "notes": "Allow students to predict the signs before advancing. All three products are negative. pp means percentage points; deviations shown are rounded. Use full-precision decimal returns for computation. A positive raw return can still be below its average: GLD’s zero return on day 4 is below its 0.3333% average. Covariance concerns deviations from means, not merely whether raw returns have opposite signs."
+  },
+  {
+    "title": "Negative covariance reveals offsetting movement",
+    "subtitle": "Debrief: all three same-day deviation products are negative.",
+    "kind": "calculation",
+    "groups": [
+      [
+        "Pair the deviations",
+        "Multiply SPY’s deviation by GLD’s deviation for each day."
+      ],
+      [
+        "Combine the observations",
+        "Sum the products; divide by n − 1, where n = paired days."
+      ],
+      [
+        "Our three-day result",
+        "Sample covariance = −0.00026667 (decimal return units squared)"
+      ]
+    ],
+    "steps": [
+      "Negative: above-average movements tend to offset below-average movements.",
+      "Positive: deviations tend to reinforce. Near zero: little linear co-movement."
+    ],
+    "takeaway": "Covariance describes joint movement. Its magnitude depends on the assets’ volatility.",
+    "notes": "Use full precision: SPY mean 0.0133333333 and GLD mean 0.0033333333. Products are −0.0000888889, −0.0003888889 and −0.0000555556. Sum is −0.0005333333; divide by two for sample covariance. Distinguish covariance from correlation: correlation standardizes covariance by the two standard deviations. Negative covariance is evidence in this sample, not a promise of future hedging."
+  },
+  {
+    "title": "A matrix organizes every asset pair",
+    "subtitle": "Two-asset example • sample estimates from the same daily simple returns",
+    "kind": "teaching-table",
+    "headers": [
+      "Asset",
+      "SPY",
+      "GLD"
+    ],
+    "rows": [
+      [
+        "SPY",
+        "0.00043333",
+        "−0.00026667"
+      ],
+      [
+        "GLD",
+        "−0.00026667",
+        "0.00023333"
+      ]
+    ],
+    "explain": [
+      "Diagonal entries = individual asset variances.",
+      "Off-diagonal entries = covariance; the two mirrored values match."
+    ],
+    "takeaway": "For four assets: four variances + six unique covariance pairs.",
+    "notes": "Variances are sample variance of the same aligned return observations. Variance is covariance of an asset with itself. SPY variance is 0.0004333333; GLD variance is 0.0002333333. Maintain identical asset ordering in rows, columns and weights. Use sample estimates consistently, or population estimates consistently; do not mix them. If a tool returns only a triangle, mirror the values rather than treating blanks as zeros. Students choose their own data ranges and computation method."
+  },
+  {
+    "title": "Weights turn asset returns into portfolio returns",
+    "subtitle": "Invest 50% in each asset at the beginning of every day.",
+    "kind": "teaching-table",
+    "headers": [
+      "Trading day",
+      "Weighted calculation",
+      "Portfolio return"
+    ],
+    "rows": [
+      [
+        "2",
+        "½ × 2% + ½ × (−1%)",
+        "0.50%"
+      ],
+      [
+        "3",
+        "½ × (−1%) + ½ × 2%",
+        "0.50%"
+      ],
+      [
+        "4",
+        "½ × 3% + ½ × 0%",
+        "1.50%"
+      ]
+    ],
+    "explain": [
+      "Multiply each asset’s simple return by its beginning-of-day weight.",
+      "Add the contributions. Repeat for each valid trading day."
+    ],
+    "takeaway": "Predict: will this portfolio fluctuate less than either asset alone?",
+    "notes": "Students calculate the first weighted result before the full table debrief. These fixed weights imply daily rebalancing, ignoring trading costs. Buy-and-hold weights drift and must be updated for an exact return series. Weights total 100%. Exact weighted portfolio returns require simple asset returns; weighted asset log returns are an approximation."
+  },
+  {
+    "title": "Portfolio risk is the spread of portfolio returns",
+    "subtitle": "Debrief: the combined daily series is 0.50%, 0.50%, 1.50%.",
+    "kind": "calculation",
+    "groups": [
+      [
+        "Average daily portfolio return",
+        "(0.50% + 0.50% + 1.50%) / 3 = 0.8333%"
+      ],
+      [
+        "Measure dispersion around that average",
+        "Sample portfolio variance = 0.00003333"
+      ],
+      [
+        "Take the square root",
+        "Daily portfolio standard deviation = 0.5774%"
+      ]
+    ],
+    "steps": [
+      "SPY alone: 2.0817% SD • GLD alone: 1.5275% SD.",
+      "The portfolio fluctuates less because the assets’ deviations offset."
+    ],
+    "takeaway": "Risk here means volatility, including upside and downside movement—not maximum loss.",
+    "notes": "Independently compute the sample standard deviation of portfolio returns. Portfolio deviations are −0.0033333333, −0.0033333333 and +0.0066666667. Sum squares divided by two gives 0.0000333333. Square root gives 0.0057735027. This example illustrates diversification, not a general guarantee that every combination has lower volatility than both components."
+  },
+  {
+    "title": "The covariance matrix gives the same portfolio risk",
+    "subtitle": "Same daily returns, weights and sample convention → same answer.",
+    "kind": "calculation",
+    "groups": [
+      [
+        "Individual-risk contributions",
+        "Weight² × SPY variance + weight² × GLD variance"
+      ],
+      [
+        "Joint-movement contribution",
+        "Add 2 × SPY weight × GLD weight × covariance"
+      ],
+      [
+        "Combine, then take the square root",
+        "0.00010833 + 0.00005833 − 0.00013333 = 0.00003333"
+      ]
+    ],
+    "steps": [
+      "Square root of the daily variance = 0.5774% daily volatility.",
+      "For four assets, include all four variances and all six pairwise terms."
+    ],
+    "takeaway": "Check your model: matrix risk should match risk from weighted SIMPLE daily returns.",
+    "notes": "For two assets portfolio variance equals wA² varA + wB² varB + 2 wA wB covAB. With equal weights, terms are 0.0001083333, 0.0000583333 and −0.0001333333. The covariance term captures diversification. For multiple assets, the compact relationship is w-transpose times covariance matrix times w. It is exact for simple-return covariance and fixed weights. Log-return covariance instead approximates simple-return portfolio volatility. Do not supply workbook formulas or cell references; students construct and verify their own implementation."
+  },
+  {
+    "title": "Annualize only after calculating daily risk",
+    "subtitle": "Keep daily and annual units distinct throughout the model.",
+    "kind": "calculation",
+    "groups": [
+      [
+        "Scale variance",
+        "Annual variance estimate = daily variance × 252"
+      ],
+      [
+        "Scale standard deviation",
+        "Annual volatility estimate = daily volatility × √252"
+      ],
+      [
+        "Our hypothetical example",
+        "0.5774% × √252 = approximately 9.17% per year"
+      ]
+    ],
+    "steps": [
+      "This scaling assumes stable daily variance and no serial correlation.",
+      "Three observations illustrate the process; use adequate history for estimation."
+    ],
+    "takeaway": "Annualized volatility is an estimate, not a loss forecast or a guaranteed outcome.",
+    "notes": "Use unrounded daily standard deviation to obtain 9.1652% annualized volatility. 252 is an approximate number of trading days. Multiplying standard deviation directly by 252 is wrong. With serial correlation, multi-day variance also depends on cross-time covariances. Log returns add across time; simple returns compound. Historical compounded annual asset growth can be estimated by converting 252 times mean daily log return back to a simple return; that is not an arithmetic expected return. Keep the workbook’s return convention distinct from the exact simple-return risk cross-check."
+  },
+  {
+    "title": "Now construct the analysis independently",
+    "subtitle": "Work with a partner; each student builds and checks their own workbook.",
+    "kind": "calculation",
+    "groups": [
+      [
+        "Prepare",
+        "Identify aligned prices. Choose and explain your return convention."
+      ],
+      [
+        "Estimate",
+        "Calculate valid returns, asset variability and pairwise covariance."
+      ],
+      [
+        "Combine and interpret",
+        "Choose weights, calculate portfolio risk, then change one allocation."
+      ]
+    ],
+    "steps": [
+      "Keep weights at 100% and use one consistent covariance convention.",
+      "Return with your risk estimate, one independent check and an explanation."
+    ],
+    "takeaway": "Explain why risk changed using weights AND co-movement—not ticker count alone.",
+    "notes": "Allow about six minutes for construction, then compare results and reasoning. Students select their own cells, ranges, functions and formulas. Do not reveal assignment answers. Debrief with a verbal explanation and an independent cross-check using the weighted simple-return series where applicable. If using log covariance, explain why exact equality with simple-return risk is not required. Ask which inputs are held fixed when weights change. Optional fallback: explain the hypothetical example verbally without workbook access."
+  },
+  {
+    "title": "Sharpe ratio: excess return per unit of risk",
+    "subtitle": "Compare different weight mixes of SPY, GLD, MSFT and VCIT.",
+    "kind": "sharpe",
+    "formula": "Sharpe = (Expected portfolio return − Risk-free rate) / Portfolio standard deviation",
+    "example": "Example A: (10% − 4%) / 12% = 0.50 • 0.50 units of excess return per unit of volatility",
+    "headers": [
+      "Hypothetical mix",
+      "Annual return",
+      "Annual risk (SD)",
+      "Sharpe"
+    ],
+    "rows": [
+      [
+        "A",
+        "10%",
+        "12%",
+        "0.50"
+      ],
+      [
+        "B",
+        "12%",
+        "20%",
+        "0.40"
+      ]
+    ],
+    "steps": [
+      "B earns more return, but A earns more excess return per unit of risk.",
+      "Compare using the same dates, annual units and 4% risk-free rate.",
+      "Identify your own Sharpe output; use it to compare feasible weight mixes."
+    ],
+    "takeaway": "Higher Sharpe = better volatility-adjusted return. It does not mean higher return or lower risk.",
+    "notes": "Compare hypothetical annual mixes A and B: A has (10%−4%)/12%=0.50; B has (12%−4%)/20%=0.40. A has higher excess return per unit of volatility despite lower raw return. Use consistent dates, annual units and return definitions. The ratio is dimensionless, not a percentage or probability. A conventional expected Sharpe uses arithmetic expected returns; a compounded historical growth estimate creates a model-specific comparison. Students identify their own inputs and construct their own calculation. Volatility includes upside and downside and is not maximum loss."
+  },
+  {
+    "title": "Use Solver to maximize the Sharpe ratio",
+    "subtitle": "Start with equal weights; students identify their own objective and decision cells.",
+    "kind": "solver",
+    "groups": [
+      [
+        "Objective: maximize",
+        "Your portfolio Sharpe ratio"
+      ],
+      [
+        "Decision variables",
+        "Your four asset weights"
+      ],
+      [
+        "Solving method",
+        "GRG Nonlinear"
+      ]
+    ],
+    "constraints": [
+      [
+        "Total weight = 100%",
+        "Fully allocate the portfolio"
+      ],
+      [
+        "Each weight ≥ minimum",
+        "Use the activity’s stated lower bounds"
+      ],
+      [
+        "Each weight ≤ maximum",
+        "Use the activity’s stated upper bounds"
+      ]
+    ],
+    "steps": [
+      "Data > Solver > enter settings and Add all three constraints.",
+      "Solve > check status and constraints > keep a valid improved solution."
+    ],
+    "takeaway": "Check all constraints, Solver’s status and the change from the starting Sharpe ratio.",
+    "notes": "Students locate their own objective, weight cells and constraint inputs. Keep return estimates, risk-free rate and covariance fixed while weights change. Use continuous weights and GRG Nonlinear because risk includes a square root and Sharpe is a ratio. Use the activity’s specified allocation bounds. Before solving, check valid paired returns, consistent covariance, finite outputs and positive risk. Check unrounded weights, total allocation and improvement from the initial Sharpe; try another feasible starting mix. Solver failure is not an optimal solution. Historical inputs and constraints determine the result; no future performance is guaranteed."
+  }
+]
