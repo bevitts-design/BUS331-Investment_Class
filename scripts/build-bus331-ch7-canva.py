@@ -81,7 +81,6 @@ manifest=[]
 for index,s in enumerate(slides,1):
     im=Image.new('RGB',(1920,1080),PAPER);d=ImageDraw.Draw(im)
     d.rectangle((0,0,1920,14),fill=GOLD)
-    txt(80,42,s['tag'],28,TEAL,b=True)
     txt(80,96,s['title'],62,width=1760,b=True)
     k=s['kind']; y=230
     if 'formula' in s:y=formula(s['formula']);
@@ -221,8 +220,6 @@ for index,s in enumerate(slides,1):
         txt(100,850,'Q1–Q2: measure / Q3: combine / Q4: sample / Q5: vary / Q6–Q7: optimize',30,width=1710)
     box(60,945,1800,88,NAVY)
     txt(85,968,s['takeaway'],32,'white',width=1740)
-    txt(80,1038,'BUS331  ·  Efficient Diversification  ·  Hypothetical teaching examples',24,STEEL)
-    txt(1710,1038,f'{index:02} / 30',24,STEEL,width=170)
     name=f'{index:02}-'+''.join(c if c.isalnum() else '-' for c in s['title'].lower()).strip('-')+'.png'
     im.save(OUT/name,optimize=True)
     manifest.append({'slide':index,'file':name,'title':s['title'],'connection':s['link'],'visual':k})
