@@ -55,6 +55,13 @@ for i,s in enumerate(slides,1):
         for j,g in enumerate(s['groups']):
             x=80+j*900;box(x,250,860,275,'#E7EDEB');text(x+30,270,g[0],42,w=800,b=True);text(x+30,345,g[1],48,w=800,c=TEAL);text(x+30,440,g[2],32,w=800)
         for j,v in enumerate(s['steps']):text(85,590+j*92,v,36)
+    elif k=='log-walkthrough':
+        for j,(label,calculation,meaning) in enumerate(s['walkthrough']):
+            y=235+j*135
+            box(80,y,1760,122,'#E7EDEB' if j%2==0 else '#EBE9E2')
+            text(100,y+20,label,32,w=430,b=True,c=TEAL)
+            text(565,y+18,calculation,32,w=580,b=True)
+            text(1190,y+18,meaning,30,w=620)
     elif k=='log-explainer':
         box(80,235,1760,115,'#E7EDEB')
         for j,v in enumerate(s['example']):text(105+j*580,265,v,34,w=555,c=TEAL,b=True)

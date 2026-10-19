@@ -12,8 +12,8 @@
     "title": "Turn a price change into a daily return"
   },
   {
-    "file": "04-log-explainer.png",
-    "title": "Why use LN returns? They add across time"
+    "file": "04-log-walkthrough.png",
+    "title": "LN adds returns over time; EXP converts back"
   },
   {
     "file": "05-teaching-table.png",

@@ -73,3 +73,12 @@ The former daily-return, covariance and portfolio-calculation slides are expande
 Visual treatments: price/return/deviation tables deliberately reuse a consistent model; covariance matrix and weighted-return ledger carry the same observations forward; log comparison and Solver parameter comparison retain their established layouts. Georgia is the preview substitute for Georgia Pro. Existing flattened-image format is retained; content remains editable in JSON, not as individual objects in Canva.
 
 Verification: all 15 rendered slides inspected for clipping, overlap and readability; independent sample covariance, variances, daily portfolio return series, matrix identity and annualization checks pass. No workbook formulas or cell addresses appear in the source or notes. Each slide has matching teaching notes. No workbook, HTML runtime, homepage or external Canva design was changed. No private workbook solutions or proprietary captures added. Nothing committed, pushed or published. The ZIP, PDF and gallery list the current 15-slide sequence; earlier loose PNGs are preserved but are not included in the current package.
+
+
+## October 16, 2026 — LN / EXP clarification
+
+- Reviewed live Canva DAHXc4bDiXg slides 53–57; slide 55 combined daily-return definitions with a compressed LN/EXP example.
+- Rebuilt the explanation as five steps: growth factors, multiplication, natural logs, summation, inverse EXP conversion. Preserve the $100/$102/$104.04 example, the distinction between log and simple gains, and the exact simple-return weighting caution. Additional instructor explanation remains in local Teaching-Notes.md.
+- Maintained content: multi-asset-extension.json; renderer: scripts/build-bus331-multi-asset-extension.py. Regenerated the 15-slide local package; no workbook or private content changed. Older generated PNGs are retained as historical artifacts and excluded from the current manifest/package.
+- Applied maintained Course Presentation Design Standard v1.2 over the skill transcription v1.1. Local renderer uses Georgia in place of Georgia Pro. Canva preserves the existing typeface; exact Georgia Pro assignment is unavailable through this editing API.
+- Local slide visually inspected; builder bounds and independent compounding checks passed. Live Canva slide 55 was saved after explicit user approval of the final preview; Canva confirmed transaction 2567570948548720915 committed. No sharing/publication or Git commit/push performed.
