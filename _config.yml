@@ -1,0 +1,4 @@
+# Keep local workbook-generation tooling out of the GitHub Pages build.
+# Its node_modules symlink points to a runtime available only on the authoring Mac.
+exclude:
+  - outputs/chapter6-excel-2026-10-11/source
