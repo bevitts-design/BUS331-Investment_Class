@@ -201,7 +201,7 @@
       "title": "Bond Prices & Yields",
       "topic": "Bond pricing, YTM, YTC, current yield — semi-annual frequency throughout",
       "status": "live",
-      "visible": false,
+      "visible": true,
       "displayOrder": 80,
       "links": [
         {
