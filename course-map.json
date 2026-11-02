@@ -246,13 +246,18 @@
       "title": "Equity Valuation Models",
       "topic": "DDM, PVGO, P/E ratios — valuing AAPL and MSFT with real data",
       "status": "live",
-      "visible": false,
+      "visible": true,
       "displayOrder": 110,
       "links": [
         {
           "label": "Open lesson",
           "url": "https://canva.link/lmgash24zh8hv5v",
           "style": "primary"
+        },
+        {
+          "label": "Equity valuation activity (Excel)",
+          "url": "Equity/BUS331_Equity_Valuation_Activity_Student_blank.xlsx",
+          "style": "reference"
         }
       ]
     },
