@@ -268,13 +268,18 @@
       "title": "Options Markets",
       "topic": "Calls, puts, payoff diagrams, Black-Scholes intuition, options strategies",
       "status": "live",
-      "visible": false,
+      "visible": true,
       "displayOrder": 120,
       "links": [
         {
           "label": "Open lesson",
           "url": "https://canva.link/c8n3jgl9u8hdlow",
           "style": "primary"
+        },
+        {
+          "label": "Options and Futures",
+          "url": "https://bevitts-design.github.io/Options-and-Futures/",
+          "style": "reference"
         }
       ]
     },
