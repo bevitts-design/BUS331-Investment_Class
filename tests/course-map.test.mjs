@@ -101,13 +101,15 @@ test("private and instructor-only links are rejected", async () => {
   );
 });
 
-test("the maintained BUS331 map preserves all sixteen public chapter cards", async () => {
+test("the maintained BUS331 map has fifteen cards with Chapters 20 and 21 combined", async () => {
   const repoRoot = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
   const map = await readCourseMap(path.join(repoRoot, "course-map.json"));
   await validateCourseMap(map, { repoRoot });
   assert.equal(map.course.code, "BUS331");
-  assert.equal(map.chapters.length, 16);
-  assert.equal(new Set(map.chapters.map((chapter) => chapter.id)).size, 16);
+  assert.equal(map.chapters.length, 15);
+  assert.equal(new Set(map.chapters.map((chapter) => chapter.id)).size, 15);
+  assert.equal(map.chapters.find((chapter) => chapter.id === "ch20")?.code, "BUS331-CH20–21");
+  assert.equal(map.chapters.some((chapter) => chapter.id === "ch21"), false);
   assert.deepEqual(
     map.chapters.filter((chapter) => chapter.status === "comingSoon").map((chapter) => chapter.code),
     ["BUS331-CH16", "BUS331-CH22"],

@@ -264,39 +264,22 @@
     {
       "id": "ch20",
       "sectionId": "derivatives",
-      "code": "BUS331-CH20",
+      "code": "BUS331-CH20–21",
       "title": "Options Markets",
-      "topic": "Calls, puts, payoff diagrams, Black-Scholes intuition, options strategies",
+      "topic": "Options Basics and Options Hedging Strategies",
       "status": "live",
       "visible": true,
       "displayOrder": 120,
       "links": [
         {
-          "label": "Open lesson",
-          "url": "https://canva.link/c8n3jgl9u8hdlow",
+          "label": "Open slides",
+          "url": "https://canva.link/62qpgdlc69oilia",
           "style": "primary"
         },
         {
           "label": "Options and Futures",
           "url": "https://bevitts-design.github.io/Options-and-Futures/",
           "style": "reference"
-        }
-      ]
-    },
-    {
-      "id": "ch21",
-      "sectionId": "derivatives",
-      "code": "BUS331-CH21",
-      "title": "Option Valuation",
-      "topic": "Binomial pricing, Black-Scholes, implied volatility, and risk-neutral valuation",
-      "status": "live",
-      "visible": false,
-      "displayOrder": 130,
-      "links": [
-        {
-          "label": "Open lesson",
-          "url": "https://canva.link/eetmo99pujy35c0",
-          "style": "primary"
         }
       ]
     },
